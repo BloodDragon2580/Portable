@@ -1,0 +1,41 @@
+﻿## Interface: 80205
+## Title: |cffd6266cPortable|r
+## Notes: Quick Access Fancy Button Frame for Mage Portal and Teleport Spells.
+## Author: Feyawen-Llane, BloddDragon2580
+## Version: 3.5
+## SavedVariables: PortableDB
+## OptionalDeps: LibStub, CallbackHandler-1.0, LibSharedMedia-3.0, AceGUI-3.0, AceGUI-3.0-SharedMediaWidgets, AceDB-3.0, AceDBOptions-3.0, AceConfig-3.0, AceConsole-3.0
+
+
+# Libraries
+Library\LibStub\LibStub.lua
+Library\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Library\AceDB-3.0\AceDB-3.0.xml
+Library\AceDBOptions-3.0\AceDBOptions-3.0.xml
+Library\AceConsole-3.0\AceConsole-3.0.xml
+Library\AceGUI-3.0\AceGUI-3.0.xml
+Library\AceConfig-3.0\AceConfig-3.0.xml
+
+Library\LibSharedMedia-3.0\lib.xml
+Library\AceGUI-3.0-SharedMediaWidgets\widget.xml
+
+Library\LibDataBroker-1-1\LibDataBroker-1.1.lua
+Library\LibDBIcon-1.0\LibDBIcon-1.0.lua
+
+
+# Language
+Language\Default.lua
+Language\enUS.lua
+Language\deDE.lua
+Language\frFR.lua
+Language\zhCN.lua
+
+# Add-on
+Common.lua
+Reorder.lua
+Broker.lua
+MinimapIcon.lua
+Main.lua
+Options.lua
+
+

@@ -1,0 +1,9 @@
+<Bindings>
+	<Binding name="PortableToggle" header="Portable">
+		 if (_G["PortableUIFrame"]:IsVisible()) then
+			_G["PortableUIFrame"]:Hide()
+		 else
+			_G["PortableUIFrame"]:Show()
+		 end
+	</Binding> 
+</Bindings>
