@@ -36,7 +36,7 @@ function me:CreateUI_MinimapIcon()
 	local fakeLDB = {		-- Pretend to be a LibDataBroker
 		type = "data source",
 		text = "",
-		icon = "Interface\\Icons\\spell_arcane_portaldalaran",
+		icon = "Interface\\Icons\\spell_arcane_portaloribos",
 		OnClick = MinimapIcon_Click,
 		OnEnter = MinimapIcon_Enter,
 		OnLeave = MinimapIcon_Leave,

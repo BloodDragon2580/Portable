@@ -30,6 +30,7 @@ L["Warspear"] = "战争之矛"
 L["Hall of the Guardian"] = "守护者圣殿"
 L["Boralus"] = "伯拉勒斯"
 L["Dazaralor"] = "祖达萨"
+L["Oribos"] = "Oribos"
 
 
 --Minimap Icon--

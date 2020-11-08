@@ -30,6 +30,7 @@ L["Warspear"] = "Kriegsspeer"
 L["Hall of the Guardian"] = "Halle des Waechters"
 L["Boralus"] = "Boralus"
 L["Dazaralor"] = "Dazaralor"
+L["Oribos"] = "Oribos"
 
 
 --Minimap Icon--

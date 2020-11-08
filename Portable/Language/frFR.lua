@@ -30,6 +30,7 @@ L["Warspear"] = "Fer-de-Lance"
 L["Hall of the Guardian"] = "Hall des Guardiens"
 L["Boralus"] = "Boralus"
 L["Dazaralor"] = "Dazaralor"
+L["Oribos"] = "Oribos"
 
 --Minimap Icon--
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "Clic gauche pour afficher la fenêtre principale.\nClic droit pour afficher les Options."
