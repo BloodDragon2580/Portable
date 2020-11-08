@@ -176,8 +176,6 @@ function me:UpdateUI_Reorder()
 		me.rui.list[n]:ClearAllPoints()
 		me.rui.list[n]:SetPoint("TOP", me.rui.container, "TOP", 0, pos)
 		me.rui.list[n].text:SetText(name)
-		me.rui.list[n].icontid:SetText(format("|T%s:%d|t", iconTeleport, itemSize))
-		me.rui.list[n].iconpid:SetText(format("|T%s:%d|t", iconPortal, itemSize))
 		me.rui.list[n]:Show()
 	end
 end

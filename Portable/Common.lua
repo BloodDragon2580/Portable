@@ -89,16 +89,22 @@ end
 
 -- Frame Style
 function me:SetFrameStyle(frame, back, border, size, inset, red,green,blue,alpha, borderRed,borderGreen,borderBlue,borderAlpha)
-	frame:SetBackdrop( {
-		bgFile = back or "Interface\\Buttons\\WHITE8X8",
-		edgeFile = border or "Interface\\Buttons\\WHITE8X8",
-		tile = false,
-		tileSize = 16,
-		edgeSize = size or 1,
-		insets = { left = inset or 0, right = inset or 0, top = inset or 0, bottom = inset or 0 },
-	} )
-	frame:SetBackdropColor(red or 0, green or 0, blue or 0, alpha or 0.75)
-	frame:SetBackdropBorderColor(borderRed or 1, borderGreen or 1, borderBlue or 1, borderAlpha or 1)
+    local function fixSetBackdrop(frame,backdrop)
+        if frame.SetBackdrop then return frame:SetBackdrop(backdrop) end
+        Mixin(frame,BackdropTemplateMixin)
+        frame:SetBackdrop(backdrop)
+        frame:OnBackdropLoaded()
+    end
+    fixSetBackdrop(frame,{
+        bgFile = back or "Interface\\Buttons\\WHITE8X8",
+        edgeFile = border or "Interface\\Buttons\\WHITE8X8",
+        tile = false,
+        tileSize = 16,
+        edgeSize = size or 1,
+        insets = { left = inset or 0, right = inset or 0, top = inset or 0, bottom = inset or 0 },
+    } )
+    frame:SetBackdropColor(red or 0, green or 0, blue or 0, alpha or 0.75)
+    frame:SetBackdropBorderColor(borderRed or 1, borderGreen or 1, borderBlue or 1, borderAlpha or 1)
 end
 
 -- Adjust the Font Size without changing the Font or Flags

@@ -168,7 +168,8 @@ me.aSpell = {
 	{ pid = 224871, tid = 224869, name = L["Dalaran - Broken Isles"], art="nDalaran2" },	--11
 	{ pid = 193759, tid = 193759, name = L["Hall of the Guardian"], art="nHalloftheGuardian" },	--12
 	{ pid = 281400, tid = 281403, name = L["Boralus"], art="nBoralus" },	--13
-	{ pid = 171253, tid = 8690, name = L["Hearthstone"], art="aHearthstone" },	--14	
+	{ pid = 344597, tid = 344587, name = L["Oribos"], art="nOribos" },	--14
+	{ pid = 171253, tid = 8690, name = L["Hearthstone"], art="aHearthstone" },	--15	
 }
 
 -- Horde Portal/Teleport Spell ID's + Friendly Names
@@ -187,7 +188,8 @@ me.hSpell = {
 	{ pid = 224871, tid = 224869, name = L["Dalaran - Broken Isles"], art="nDalaran2" },	--11
 	{ pid = 193759, tid = 193759, name = L["Hall of the Guardian"], art="nHalloftheGuardian" },	--12
 	{ pid = 281402, tid = 281404, name = L["Dazaralor"], art="nDazaralor" },	--13
-	{ pid = 171253, tid = 8690, name = L["Hearthstone"], art="hHearthstone" },	--14					
+	{ pid = 344597, tid = 344587, name = L["Oribos"], art="nOribos" },	--14
+	{ pid = 171253, tid = 8690, name = L["Hearthstone"], art="hHearthstone" },	--15					
 }
 
 -- Hearthstones are ITEMS not SPELLS!
