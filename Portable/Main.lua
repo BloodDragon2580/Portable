@@ -878,7 +878,7 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button13:SetPoint("TOPLEFT", me.ui.button7, "BOTTOMLEFT", 0, -space)
 		
 		me.ui.button14:SetPoint("TOPLEFT", me.ui.button2, "TOPRIGHT", 0, -space)	
-		me.ui.button15:SetPoint("TOPLEFT", me.ui.button2, "BOTTOMLEFT", 97, -space)
+		me.ui.button15:SetPoint("TOPLEFT", me.ui.button2, "BOTTOMRIGHT", 0, -space)
 		
 	-- Look at Me (LEFT) 超大! (左)
 	elseif (me.db.profile.iconLayout == 4) then
