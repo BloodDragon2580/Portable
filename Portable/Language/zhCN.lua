@@ -1,14 +1,8 @@
-﻿--[[ ==========================================================================
-	© Feyawen Ariana 2007-2015
-		If you use my code, please give me credit.
-	© BloodDragon2580 2017 for German Translate
-========================================================================== ]]--
-if (GetLocale() ~= "zhCN") then return end
+﻿if (GetLocale() ~= "zhCN") then return end
 local myName, me = ...
 local L = me.L
 
---Teleports Alli--
-L["myName"] = "|cff0088ffPortable|cff808080: |r"	-- Provide a "friendly name" of our AddOn to prefix any output messages.
+L["myName"] = "|cff0088ffPortable|cff808080: |r"
 L["Stormwind"] = "暴风城"
 L["Ironforge"] = "铁炉堡"
 L["Darnassus"] = "达纳苏斯"
@@ -33,16 +27,15 @@ L["Dazaralor"] = "祖达萨"
 L["Oribos"] = "Oribos"
 
 
---Minimap Icon--
-L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "" --左键: 窗口\n右键: 设置
+L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = ""
 
---Settings--
+
 L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."] = "Version |cffffff00%s |cff00ff00Geladen|r.  Nutze |cffffff00%s|r um die Benutzeroberfläche umzuschalten |cffa0a0a0(oder verwenden eine Macro)|r, |cffffff00%s %s|r für Befehlsliste."
-L["Close Portable."] = "" --关闭
-L["Open Portable Configuration."] = "" --设置
-L["Manually Change the Spell Order for %s."] = "" --排序
-L["Portable"] = "" --Portable传送门
-L["Portable "] = "" --Portable传送门
+L["Close Portable."] = ""
+L["Open Portable Configuration."] = ""
+L["Manually Change the Spell Order for %s."] = ""
+L["Portable"] = ""
+
 
 L["Frame Style  |c00000000Portable"] = "窗口"
 L["Button Icons  |c00000000Portable"] = "图标"
@@ -62,32 +55,26 @@ L["Arcane"] = "完整"
 L["Background Artwork"] = "背景"
 L["Background Artwork of the Main Frame."] = "主视窗的背景美术图案。"
 L["Background Color"] = "背景颜色"
-L["Color to Tint the Background Artwork.\n|cffffff00Note, most images require White and Full Alpha to be seen|r."] = [=[背景美术图案的著色颜色。
-|cffffff00注意，大部分的图案需要白色和完全不透明才能显示出来|r。]=]
+L["Color to Tint the Background Artwork.\n|cffffff00Note, most images require White and Full Alpha to be seen|r."] = "背景美术图案的著色颜色.|cffffff00注意，大部分的图案需要白色和完全不透明才能显示出来|r."
 
 L["Button Icon Container Frame"] = "按钮标框格"
 L["Container Padding"] = "框格内距"
 L["Padding Space around the Button Icon Container Frame."] = "按钮图标框格四周内部的距离。"
 L["Container Background Color"] = "框格背景颜色"
-L["Color to Tint the Container Background.\n|cffffff00Note, most images require White and Full Alpha to be seen|r."] = [=[框格背景的着色颜色。
-|cffffff00注意，大部分的图案需要白色和完全不透明才能显示出来|r。]=]
+L["Color to Tint the Container Background.\n|cffffff00Note, most images require White and Full Alpha to be seen|r."] = "框格背景的着色颜色.|cffffff00注意，大部分的图案需要白色和完全不透明才能显示出来|r."
 L["Container Border Color"] = "框格边框颜色"
 L["Color to Tint the Container Border."] = "框格边框的着色颜色。"
 
 L["Simple Frame Style Only"] = "仅供简约窗口风格"
 L["Border Artwork"] = "边框美化"
-L["Color to Tint the Border Artwork.\n|cffffff00Note, only for the Simple Frame style|r."] = [=[边框美术图案的著色颜色。
-|cffffff00注意，仅供简约视窗风格使用|r。]=]
-L["Border Artwork of the Simple Frame Style.\n|cffffff00Note, only for the Simple Frame style|r."] = [=[简约视窗风格的边框美术图案。
-|cffffff00注意，仅供简约视窗风格使用|r。]=]
+L["Color to Tint the Border Artwork.\n|cffffff00Note, only for the Simple Frame style|r."] = "边框美术图案的著色颜色.|cffffff00注意，仅供简约视窗风格使用|r."
+L["Border Artwork of the Simple Frame Style.\n|cffffff00Note, only for the Simple Frame style|r."] = "简约视窗风格的边框美术图案.|cffffff00注意，仅供简约视窗风格使用|r."
 L["Border Size"] = "边框大小"
-L["Thickness of the Border Artwork.\n|cffffff00Note, only for the Simple Frame style|r."] = [=[边框美术的粗细。
-|cffffff00注意，仅供简约视窗风格使用|r。]=]
+L["Thickness of the Border Artwork.\n|cffffff00Note, only for the Simple Frame style|r."] = "边框美术的粗细.|cffffff00注意，仅供简约视窗风格使用|r."
 L["Border Inset"] = "边框内缩"
-L["Inset of the Border Artwork and Background Artwork.\n|cffffff00Note, only for the Simple Frame style|r."] = [=[边框美术和背景美术的内缩大小。
-|cffffff00注意，仅供简约视窗风格使用|r。]=]
+L["Inset of the Border Artwork and Background Artwork.\n|cffffff00Note, only for the Simple Frame style|r."] = "边框美术和背景美术的内缩大小.|cffffff00注意，仅供简约视窗风格使用|r."
 
---===========
+
 L["Icon Artwork"] = "图标风格"
 L["Icon Artwork Style"] = "图标的显示风格"
 L["Style of the Button Icon Artwork."] = "图标以何种风格显示。"
@@ -103,8 +90,7 @@ L["Look at Me! (Left)"] = "超大! (左)"
 L["Look at Me! (Right)"] = "超大! (右)"
 L["Priority (Right)"] = "优先 (右)"
 L["Icon Size"] = "图标大小"
-L["Size of the Button Icons.\n|cffffff00Note, this setting will change when manually resizing the main frame|r."] = [=[按钮图标大小。
-|cffffff00注意，手动调整主视窗大小时会更改这个设定|r。]=]
+L["Size of the Button Icons.\n|cffffff00Note, this setting will change when manually resizing the main frame|r."] = "按钮图标大小.|cffffff00注意，手动调整主视窗大小时会更改这个设定|r."
 L["Icon Padding"] = "框内大小"
 L["Padding Space Around the Button Icons."] = "按钮图标四周内部的距离。"
 L["Icon Spacing"] = "图标间距"
@@ -112,9 +98,8 @@ L["Space between each Button Icon."] = "每个按钮图标之间的距离。"
 
 L["Simple Rows Icon Layout Only"] = "仅供简单列出图标版面"
 L["Icons per Row"] = "每列图标数量"
-L["Number of Icon Buttons per Row.\n|cffffff00Note, only for Simple Rows icon layout|r."] = [=[每个横列显示多少个图标。
-|cffffff00注意，仅供简单列出图标版面配置使用|r。]=]
---===========
+L["Number of Icon Buttons per Row.\n|cffffff00Note, only for Simple Rows icon layout|r."] = "每个横列显示多少个图标.|cffffff00注意，仅供简单列出图标版面配置使用|r."
+
 L["Font Flags"] = "文字样式"
 L["Button Text Behaviour"] = "按钮文字"
 L["Text Behaviour"] = "文字"
@@ -135,8 +120,7 @@ L["None"] = "无"
 L["Outline"] = "外框"
 L["Thick Outline"] = "粗外框"
 L["Font Size"] = "文字大小"
-L["Size of the Font on the Button Icons.\n|cffffff00Note, this setting will change when manually resizing the main frame|r."] = [=[按钮图标文字大小。
-|cffffff00注意，手动调整主视窗大小时会更改这个设定|r。]=]
+L["Size of the Font on the Button Icons.\n|cffffff00Note, this setting will change when manually resizing the main frame|r."] = "按钮图标文字大小.|cffffff00注意，手动调整主视窗大小时会更改这个设定|r."
 
 L["Text Position"] = "文字位置"
 L["Position on the Button of the Name Text."] = "名称文字在按钮上的位置。"
@@ -157,7 +141,7 @@ L["Text Offset X"] = "文字水平位置"
 L["Offset of the Text on the X Axis (Horizontal, Left and Right)."] = "文字在 X 轴上的偏移位置 (水平方向，左或右)。"
 L["Text Offset Y"] = "文字垂直位置"
 L["Offset of the Text on the Y Axis (Vertical, Up and Down)."] = "文字在 Y 轴上的偏移位置 (垂直方向，上或下)。"
---===========
+
 L["Spell Order"] = "图标排列"
 L["Learn Spell Order"] = "图标排列位置"
 L["Learn Best Order Automatically"] = "自动排列图标位置"
@@ -176,7 +160,7 @@ L["Reorder Horde Spells"] = "手动排列部落图标"
 L["Manualy change the Order of the Horde Spells.\n|cffffff00Note that manually rearranging spell order will deactivate Learning if active|r."] = "手动排列部落图标。\n|cffffff00此操作会关闭自动排序。|r"
 L["Reset Horde"] = "重置部落图标"
 L["Reset the Order of Horde Spells to their Defaults."] = ""
---===========
+
 L["Hearthstone Behaviour"] = "炉石设置"
 L["Hearthstone Artwork"] = "炉石的图标"
 L["Artwork to use for your hearthstone."] = "以什么图标来显示炉石"
@@ -195,7 +179,7 @@ L["Garrison Hearthstone"] = "要塞炉石"
 
 L["Right-Click Action"] = "右键点击动作"
 L["Where you go when you Right-Click."] = "右键点击时的操作"
---===========
+
 L["Extra Stuff"] = "其他功能"
 L["Use ESCAPE to Close."] = "按ESC关闭"
 L["Press the ESCape key to close the Portable frame."] = "按 ESC 键关闭传送门视窗。"
@@ -206,7 +190,6 @@ L["Size of the Toolbar on the Main Portable Frame."] = "传送门主视窗的工
 L["Large"] = "大"
 L["Small"] = "小"
 L["None"] = "无"
---===========
 
 
 L["About"] = "关于"

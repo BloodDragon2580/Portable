@@ -1,14 +1,8 @@
-ï»¿--[[ ==========================================================================
-	© Feyawen Ariana 2007-2015
-		If you use my code, please give me credit.
-	© Yulemath 2017 for French Translate	
-========================================================================== ]]--
-if (GetLocale() ~= "frFR") then return end
+ï»¿if (GetLocale() ~= "frFR") then return end
 local myName, me = ...
 local L = me.L
 
---Teleports Alli--
-L[myName] = "|cff0088ffPortable|cff808080: |r"	-- Provide a "friendly name" of our AddOn to prefix any output messages.
+L[myName] = "|cff0088ffPortable|cff808080: |r"
 L["Stormwind"] = "Hurlevent"
 L["Ironforge"] = "Forgefer"
 L["Darnassus"] = "Darnassus"
@@ -32,10 +26,10 @@ L["Boralus"] = "Boralus"
 L["Dazaralor"] = "Dazaralor"
 L["Oribos"] = "Oribos"
 
---Minimap Icon--
+
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "Clic gauche pour afficher la fenêtre principale.\nClic droit pour afficher les Options."
 
---Settings--
+
 L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."] = "Version |cffffff00%s |cff00ff00Chargée|r.  Utilisez |cffffff00%s|r pour afficher l'IU |cffa0a0a0(ou utilisez une touche de racourci)|r, |cffffff00%s %s|r pour la liste des commandes."
 L["/portable"] = "/portable"
 L["help"] = "Aide"
