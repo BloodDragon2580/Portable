@@ -1,6 +1,7 @@
-﻿if (GetLocale() ~= "deDE") then return end
+if (GetLocale() ~= "deDE") then return end
 local myName, me = ...
 local L = me.L
+
 
 L[myName] = "|cff0088ffPortable|cff808080: |r"
 L["Boralus"] = "Boralus"
