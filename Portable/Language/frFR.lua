@@ -2,6 +2,7 @@
 local myName, me = ...
 local L = me.L
 
+
 L[myName] = "|cff0088ffPortable|cff808080: |r"
 L["Stormwind"] = "Hurlevent"
 L["Ironforge"] = "Forgefer"
