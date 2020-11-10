@@ -4,6 +4,8 @@ local L = me.L
 
 
 L[myName] = "|cff0088ffPortable|cff808080: |r"
+
+--Portal/Teleport Names
 L["Boralus"] = "Boralus"
 L["Dalaran - Broken Isles"] = "Dalaran - Verheerte Inseln"
 L["Dalaran - Northrend"] = "Dalaran - Nordend"
@@ -27,10 +29,10 @@ L["Undercity"] = "Unterstadt"
 L["Vale of Eternal Blossoms"] = "Tal der Ewigen Blüten"
 L["Warspear"] = "Kriegsspeer"
 
-
+--Minimap Button
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "Links Klick zum Öffnen des Frames.\nRechts Klick für Optionen"
 
-
+--Commands
 L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."] = "Version |cffffff00%s |cff00ff00Geladen|r.  Nutze |cffffff00%s|r um die Benutzeroberfläche umzuschalten |cffa0a0a0(oder verwenden eine Macro)|r, |cffffff00%s %s|r für Befehlsliste."
 L["/portable"] = "/portable"
 L["help"] = "hilfe"
@@ -48,7 +50,10 @@ L["Hearthstone  |c00000000Portable"] = "Hearthstone"
 L["Extra Stuff  |c00000000Portable"] = "Extra Stuff"
 L["Profiles  |c00000000Portable"] = "Profiles"
 
+--A
 L["Always Show"] = "Always Show"
+
+--B
 L["Background Artwork"] = "Hintergrundgrafik"
 L["Background Artwork of the Main Frame."] = "Hintergrundgrafik des Hauptrahmens."
 L["Background Color"] = "Hintergrundfarbe"
@@ -58,18 +63,24 @@ L["Border Artwork of the Simple Frame Style.\\n|cffffff00Note, only for the Simp
 L["Border Size"] = "Randgröße"
 L["Button Icon Container Frame"] = "Schaltflächensymbol Containerrahmen"
 L["Button Text Behaviour"] = "Tastentextverhalten"
+
+--C
 L["Color of the Name Text."] = "Farbe des Namenstextes."
 L["Color to Tint the Background Artwork.\\n|cffffff00Note, most images require White and Full Alpha to be seen|r."] = "Farbe, um die Hintergrundgrafik zu färben.\\n|cffffff00Beachte, dass für die meisten Bilder Weiß und Voll Alpha zu sehen sind|r."
 L["Color to Tint the Border Artwork.\\n|cffffff00Note, only for the Simple Frame style|r."] = "Farbe, um die Rahmengrafik einzufärben. \\n|cffffff00Note, nur für den einfachen Rahmenstil|r."
 L["Color to Tint the Container Background.\\n|cffffff00Note, most images require White and Full Alpha to be seen|r."] = "Farbe, um den Behälterhintergrund zu tönen.\\n|cffffff00Beachte, dass für die meisten Bilder Weiß und Voll Alpha zu sehen sind|r."
 L["Container Background Color"] = "Hintergrundfarbe des Containers"
 L["Container Padding"] = "Containerauflage"
+
+--F
 L["Font Face"] = "Schriftart"
 L["Font Flags"] = "Schriftarten"
 L["Font Outline Options."] = "Schriftart Umrissoptionen."
 L["Font Size"] = "Schriftgröße"
 L["Font type for the Button Text."] = "Schriftart für den Button Text."
 L["Frame Style"] = "Rahmenart"
+
+--I
 L["Icon Artwork"] = "Icon Grafik"
 L["Icon Artwork Style"] = "Symbol Grafikstil"
 L["Icon Layout"] = "Icon Layout"
@@ -79,16 +90,28 @@ L["Icon Spacing"] = "Symbolabstand"
 L["Icon Style"] = "Icon Style"
 L["Icons per Row"] = "Icons pro Zeile"
 L["Inset of the Border Artwork and Background Artwork.\\n|cffffff00Note, only for the Simple Frame style|r."] = "Inset of the Border Artwork and Background Artwork.\\n|cffffff00Note, only for the Simple Frame style|r."
+
+--L
 L["Layout of Button Icons."] = "Layout der Button Icons."
+
+--M
 L["Main Frame Style"] = "Hauptrahmen"
 L["MONOCHROME"] = "MONOCHROME"
+
+--N
 L["Never Show"] = "Never Show"
 L["NONE"] = "NONE"
 L["Number of Icon Buttons per Row.\\n|cffffff00Note, only for Simple Rows icon layout|r."] = "Number of Icon Buttons per Row.\\n|cffffff00Note, only for Simple Rows icon layout|r."
+
+--O
 L["On Mouse Over"] = "On Mouse Over"
 L["OUTLINE"] = "OUTLINE"
+
+--P
 L["Padding Space around the Button Icon Container Frame."] = "Padding Space um den Button Icon Container Frame."
 L["Padding Space Around the Button Icons."] = "Padding Space Around the Button Icons."
+
+--S
 L["Select the Main Frame Style."] = "Wähle den Hauptrahmenstil aus."
 L["Simple Frame Style Only"] = "Einfacher Rahmenstil"
 L["Simple Rows Icon Layout Only"] = "Nur einfaches Zeilen-Icon-Layout"
@@ -96,6 +119,8 @@ L["Size of the Button Icons.\\n|cffffff00Note, this setting will change when man
 L["Size of the Font on the Button Icons.\\n|cffffff00Note, this setting will change when manually resizing the main frame|r."] = "Größe der Schriftart auf den Button Icons. \\n|cffffff00Note, Diese Einstellung ändert sich, wenn die Größe des Hauptrahmens|r manuell geändert wird."
 L["Space between each Button Icon."] = "Abstand zwischen den Schaltflächensymbolen"
 L["Style of the Button Icon Artwork."] = "Stil der Schaltflächensymbolgrafik"
+
+--T
 L["Text Behaviour"] = "Text Verhalten"
 L["Text Color"] = "Text Farbe"
 L["Text Style"] = "Text Style"
