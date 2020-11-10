@@ -1,13 +1,5 @@
---[[ ==========================================================================
-	© Feyawen Ariana 2007-2015
-		If you use my code, please give me credit.
-	
-	
-	Drag-and-Drop reorder list items.
-========================================================================== ]]--
-
 local myName, me = ...
-local L = me.L	-- Language shorthand
+local L = me.L
 
 
 local itemSize = 17

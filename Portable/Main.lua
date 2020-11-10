@@ -1,5 +1,5 @@
 local myName, me = ...
-local L = me.L	-- Language shorthand
+local L = me.L
 
 -- Bindings
 BINDING_HEADER_Portable = L["Portable"]

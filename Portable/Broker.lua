@@ -1,20 +1,5 @@
---[[ ==========================================================================
-	© Feyawen Ariana 2007-2015
-		If you use my code, please give me credit.
-	
-	Data Broker Feed for Portable
-	
-	Notes:
-		Originally I was going to use the "LibQTip-1.0" Library, but as I was
-		coding for it I realized that it doesn't support secure actions, which
-		of course is needed to cast spells and use items.  So I thought about
-		using "Dewdrop-2.0" but it hasn't been updated for years.  Thus, I'm
-		writting a full frame with secure action buttons, which I really didn't
-		want to do, but it seems the only way.
-========================================================================== ]]--
-
 local myName, me = ...
-local L = me.L		-- Language shorthand
+local L = me.L
 
 
 -- Data Broker Feed

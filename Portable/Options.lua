@@ -1,14 +1,6 @@
---[[ ==========================================================================
-	© Feyawen Ariana 2007-2015
-		If you use my code, please give me credit.
-		
-		
-	Options UI for Portable
-========================================================================== ]]--
-
 local myName, me = ...
-local L = me.L				-- Language
-local lsm = me.lsm		-- Shared Media Library
+local L = me.L
+local lsm = me.lsm
 
 me.Options = {}
 

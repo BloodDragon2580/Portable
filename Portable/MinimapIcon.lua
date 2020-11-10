@@ -1,12 +1,5 @@
---[[ ==========================================================================
-	© Feyawen Ariana 2007-2015
-		If you use my code, please give me credit.
-	
-	Minimap Icon for Portable
-========================================================================== ]]--
-
 local myName, me = ...
-local L = me.L		-- Language shorthand
+local L = me.L
 
 local minimapIcon = LibStub:GetLibrary("LibDBIcon-1.0")	-- Minimap Icon Library
 
