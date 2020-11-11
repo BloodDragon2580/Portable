@@ -24,17 +24,17 @@ L["Warspear"] = "战争之矛"
 L["Hall of the Guardian"] = "守护者圣殿"
 L["Boralus"] = "伯拉勒斯"
 L["Dazaralor"] = "祖达萨"
-L["Oribos"] = "Oribos"
+L["Oribos"] = "奥利波斯"
 
 
-L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = ""
+L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "左键点击打开主窗口。右键点击打开设置窗口。"
 
 
 L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."] = "Version |cffffff00%s |cff00ff00Geladen|r.  Nutze |cffffff00%s|r um die Benutzeroberfläche umzuschalten |cffa0a0a0(oder verwenden eine Macro)|r, |cffffff00%s %s|r für Befehlsliste."
-L["Close Portable."] = ""
-L["Open Portable Configuration."] = ""
-L["Manually Change the Spell Order for %s."] = ""
-L["Portable"] = ""
+L["Close Portable."] = "关闭 Portable。"
+L["Open Portable Configuration."] = "打开 Portable 控制界面。"
+L["Manually Change the Spell Order for %s."] = "手动更改 %s 的排序。"
+L["Portable"] = "Portable"
 
 
 L["Frame Style  |c00000000Portable"] = "窗口"
