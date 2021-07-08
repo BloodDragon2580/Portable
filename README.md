@@ -57,3 +57,5 @@ Button Text
 Other Stuff
 
     Close with the ESCape key.
+
+Download Count https://hanadigital.github.io/grev/?user=BloodDragon2580&repo=Portable
