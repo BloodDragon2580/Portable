@@ -28,6 +28,7 @@ L["Tol Barad"] = "Tol Barad"
 L["Undercity"] = "Unterstadt"
 L["Vale of Eternal Blossoms"] = "Tal der Ewigen Blüten"
 L["Warspear"] = "Kriegsspeer"
+L["Valdrakken"] = "Valdrakken"
 
 --Minimap Button
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "Links Klick zum Öffnen des Frames.\nRechts Klick für Optionen"

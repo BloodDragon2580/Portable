@@ -57,8 +57,8 @@ local defaults = {
 		learnOrder = false,
 		allianceCounter = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
 		hordeCounter =  { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
-		allianceSpellOrder = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 },		-- Default Ordering for Priority
-		hordeSpellOrder =  { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 },		-- Default Ordering for Priority
+		allianceSpellOrder = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 },		-- Default Ordering for Priority
+		hordeSpellOrder =  { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 },		-- Default Ordering for Priority
 		
 		-- Extra Stuff
 		keyEscape = true,	-- Close when ESCAPE is pressed
@@ -97,7 +97,8 @@ me.aSpell = {
 	{ pid = 193759, tid = 193759, name = L["Hall of the Guardian"], art="nHalloftheGuardian" },	--12
 	{ pid = 281400, tid = 281403, name = L["Boralus"], art="nBoralus" },	--13
 	{ pid = 344597, tid = 344587, name = L["Oribos"], art="nOribos" },	--14
-	{ pid = 171253, tid = 8690, name = L["Hearthstone"], art="aHearthstone" },	--15	
+	{ pid = 395289, tid = 395277, name = L["Valdrakken"], art="nValdrakken" },	--15
+	{ pid = 171253, tid = 8690, name = L["Hearthstone"], art="aHearthstone" },	--16	
 }
 
 -- Horde Portal/Teleport Spell ID's + Friendly Names
@@ -117,7 +118,8 @@ me.hSpell = {
 	{ pid = 193759, tid = 193759, name = L["Hall of the Guardian"], art="nHalloftheGuardian" },	--12
 	{ pid = 281402, tid = 281404, name = L["Dazaralor"], art="nDazaralor" },	--13
 	{ pid = 344597, tid = 344587, name = L["Oribos"], art="nOribos" },	--14
-	{ pid = 171253, tid = 8690, name = L["Hearthstone"], art="hHearthstone" },	--15					
+	{ pid = 395289, tid = 395277, name = L["Valdrakken"], art="nValdrakken" },	--15
+	{ pid = 171253, tid = 8690, name = L["Hearthstone"], art="hHearthstone" },	--16	
 }
 
 -- Hearthstones are ITEMS not SPELLS!
@@ -237,7 +239,7 @@ function me:CreateUI_Frame()
 	me.ui:SetMovable(true)
 	me.ui:SetResizable(true)
 	me.ui:SetClampedToScreen(true)
-	me.ui:SetMinResize(MIN_WIDTH, 100)
+	me.ui:SetResizeBounds(MIN_WIDTH, 100)
 	me.ui:SetSize(MIN_WIDTH, 100) --If a frame size is not given, weird things happen (this value is temporary)
 	me.ui:SetPoint("CENTER", UIParent, "CENTER", 50, 0)
 	me.ui:SetScript("OnSizeChanged", function(self, w, h)
@@ -1228,7 +1230,7 @@ end
 
 -- Show the Configuration
 function me:Helper_ShowConfig()
-	InterfaceAddOnsList_Update()	-- If the Blizzard Options Frame hasn't been Opened yet, OpenToCategory will fail, so we force a refresh first
+--	InterfaceAddOnsList_Update()	-- If the Blizzard Options Frame hasn't been Opened yet, OpenToCategory will fail, so we force a refresh first
 	InterfaceOptionsFrame_OpenToCategory(L["Frame Style  |c00000000Portable"])	-- By selecting a SubCategory first, the Options Tree will be open when we select the main Category
 	InterfaceOptionsFrame_OpenToCategory(myName)	-- Select the main category (which is setup as an About frame)
 end
