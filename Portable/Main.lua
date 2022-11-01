@@ -392,8 +392,8 @@ function me:CreateUI_Buttons()
 		me.ui[button].sab:SetAllPoints(me.ui[button])
 		
 		-- Disabled Texture (If a mage doesn't know a spell, it will be greyed out)
-		--me.ui[button].disabled = me.ui[button]:CreateTexture(nil, "ARTWORK")
-		--me.ui[button].disabled:SetAllPoints(me.ui[button])
+		me.ui[button].disabled = me.ui[button]:CreateTexture(nil, "ARTWORK")
+		me.ui[button].disabled:SetAllPoints(me.ui[button])
 		
 		-- Text (Shows the name of the destination)
 		me.ui[button].text = CreateFrame("Frame", nil, me.ui[button])
