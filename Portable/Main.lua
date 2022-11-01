@@ -753,6 +753,7 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button13:SetPoint("TOPLEFT", me.ui.button12, "TOPRIGHT", space, 0)
 		me.ui.button14:SetPoint("TOPLEFT", me.ui.button13, "TOPRIGHT", space, 0)	
 		me.ui.button15:SetPoint("TOPLEFT", me.ui.button14, "TOPRIGHT", space, 0)
+		me.ui.button16:SetPoint("TOPLEFT", me.ui.button14, "TOPRIGHT", space, 0)
 	
 	-- Simple Rows
 	elseif (me.db.profile.iconLayout  == 2) then
@@ -809,6 +810,7 @@ function me:UpdateUI_ButtonGrid()
 		
 		me.ui.button14:SetPoint("TOPLEFT", me.ui.button2, "TOPRIGHT", 0, -space)	
 		me.ui.button15:SetPoint("TOPLEFT", me.ui.button2, "BOTTOMRIGHT", 0, -space)
+		me.ui.button16:SetPoint("TOPLEFT", me.ui.button2, "BOTTOMRIGHT", 0, -space)
 		
 	-- Look at Me (LEFT) 超大! (左)
 	elseif (me.db.profile.iconLayout == 4) then
@@ -835,6 +837,7 @@ function me:UpdateUI_ButtonGrid()
 		
 		me.ui.button14:SetPoint("TOPLEFT", me.ui.button10, "TOPRIGHT", 0, -space)
 		me.ui.button15:SetPoint("TOPLEFT", me.ui.button11, "TOPRIGHT", 0, -space)
+		me.ui.button16:SetPoint("TOPLEFT", me.ui.button11, "TOPRIGHT", 0, -space)
 		
 		
 	-- Look at Me (RIGHT) 超大! (右)
@@ -862,6 +865,9 @@ function me:UpdateUI_ButtonGrid()
 
 		me.ui.button14:SetPoint("TOPRIGHT", me.ui.button10, "TOPLEFT", 0, -space)
 		me.ui.button15:SetPoint("TOPRIGHT", me.ui.button11, "TOPLEFT", 0, -space)
+		me.ui.button16:SetPoint("TOPRIGHT", me.ui.button11, "TOPLEFT", 0, -space)
+		
+		
 	-- Priority (RIGHT) 优先 (右) ... A few guildies have asked for a backwards Priority Layout, so here it is
 	elseif (me.db.profile.iconLayout == 6) then
 		me.ui.button1:SetPoint("TOPRIGHT", me.ui.container, "TOPRIGHT",  -pad, -pad)
@@ -891,7 +897,9 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button13:SetPoint("TOPRIGHT", me.ui.button12, "TOPLEFT", -space, 0)
 
 		me.ui.button14:SetPoint("TOPRIGHT", me.ui.button16, "TOPLEFT", -space, 0)
-		me.ui.button15:SetPoint("TOPRIGHT", me.ui.button5, "TOPLEFT", -space, 0)		
+		me.ui.button15:SetPoint("TOPRIGHT", me.ui.button5, "TOPLEFT", -space, 0)
+		me.ui.button16:SetPoint("TOPRIGHT", me.ui.button5, "TOPLEFT", -space, 0)		
+		
 	-- Invalid
 	else
 		me:print("error", L["Invalid Icon Layout in UpdateUI_ButtonGrid"])
