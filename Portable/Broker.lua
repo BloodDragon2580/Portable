@@ -57,7 +57,7 @@ function me:CreateUI_Broker()
 	--me:SetFrameStyle(me.broker.header, nil, nil, nil, nil, 0.0,0.0,1.0,0.5, 0.0,0.0,1.0,1.0)
 	me.broker.header.text = me.broker.header:CreateFontString(nil)
 	me.broker.header.text:SetPoint("TOP", me.broker.header, "TOP", 0, 0)
-	me.broker.header.text:SetFont("Fonts\\ARHei.ttf", 14, "")
+	me.broker.header.text:SetFont("Fonts\\FRIZQT__.TTF", 14, "")
 	me.broker.header.text:SetJustifyV("TOP")
 	me.broker.header.text:SetTextColor(0.0,0.5,1.0, 1.0)
 	me.broker.header.text:SetNonSpaceWrap(false)
@@ -88,7 +88,7 @@ function me:CreateUI_Broker()
 		me:SetFrameStyle(me.broker[button].sab, nil, nil, nil, nil, 0.0,0.0,0.0,0.0, 0.0,0.0,0.0,0.0)
 		
 		me.broker[button].text = me.broker[button]:CreateFontString(nil)
-		me.broker[button].text:SetFont("Fonts\\ARHei.ttf", 12, "")	-- Default font, we don't want a nil font
+		me.broker[button].text:SetFont("Fonts\\FRIZQT__.TTF", 12, "")	-- Default font, we don't want a nil font
 		me.broker[button].text:SetJustifyV("TOP")
 		me.broker[button].text:SetTextColor(1.0,1.0,1.0, 1.0)
 	end
@@ -97,13 +97,13 @@ function me:CreateUI_Broker()
 	me.broker["info"] = CreateFrame("Frame", myName.."BrokerTipInfo", me.broker)
 	--me:SetFrameStyle(me.broker.info, nil, nil, nil, nil, 1.0,0.0,0.0,0.5, 1.0,0.0,0.0,1.0)
 	me.broker.info.text = me.broker.info:CreateFontString(nil)
-	me.broker.info.text:SetFont("Fonts\\ARHei.ttf", 10, "")
+	me.broker.info.text:SetFont("Fonts\\FRIZQT__.TTF", 10, "")
 	me.broker.info.text:SetPoint("TOPLEFT", me.broker.info, "TOPLEFT", 0, 0)
 	me.broker.info.text:SetJustifyV("TOP")
 	me.broker.info.text:SetJustifyH("LEFT")
 	me.broker.info.text:SetTextColor(0.7,0.7,0.7, 1.0)
 	me.broker.info.text:SetNonSpaceWrap(false)
-	me.broker.info.text:SetText(L["Left-Click to Toggle Portable Frame.\nRight-Click for Portable Options."])
+	me.broker.info.text:SetText(L["Left-Click to Toggle Main Frame.\nRight-Click for Options."])
 	me.broker.info:SetHeight(me.broker.info.text:GetStringHeight())
 end
 
@@ -131,81 +131,7 @@ function me:UpdateUI_Broker()
 	local toggle = true
 	for n = 1, me.MAX_BUTTONS do
 		local button = "button"..tostring(n)
-		local name = spells[order[n]].name
-		local portal = spells[order[n]].pid
-		local teleport = spells[order[n]].tid
-		local canPortal = IsSpellKnown(portal)
-		local canTeleport = IsSpellKnown(teleport)
 		
-		me.broker[button].sab.ID = order[n]
-		
-		-- Hearthstone?
-		if (teleport == HEARTHSTONEID) then
-			if (me.db.profile.hearthLeft == "hearthstone") then
-				teleport = ITEM_HEARTHSTONE
-				canTeleport = me:Helper_IsInBags(ITEM_HEARTHSTONE)
-				if (not canTeleport) then
-					teleport = ITEM_INNKEEPERSDAUGHTER
-					canTeleport = me:Helper_IsInBags(ITEM_INNKEEPERSDAUGHTER)
-				end
-			elseif (me.db.profile.hearthLeft == "garrison") then
-				teleport = ITEM_GARRISON
-				canTeleport = me:Helper_IsInBags(ITEM_GARRISON)
-			else
-				canTeleport = false
-			end
-			if (me.db.profile.hearthRight == "hearthstone") then
-				portal = ITEM_HEARTHSTONE
-				canPortal = me:Helper_IsInBags(ITEM_HEARTHSTONE)
-				if (not canPortal) then
-					portal = ITEM_INNKEEPERSDAUGHTER
-					canPortal = me:Helper_IsInBags(ITEM_INNKEEPERSDAUGHTER)
-				end
-			elseif (me.db.profile.hearthRight == "garrison") then
-				portal = ITEM_GARRISON
-				canPortal = me:Helper_IsInBags(ITEM_GARRISON)
-			else
-				canPortal = false
-			end
-			-- Sort out the name text
-			if (me.db.profile.hearthText == "hearthstone") then
-				name = format(L["%s"], GetBindLocation())
-			elseif (me.db.profile.hearthText == "garrison") then
-				name = format(L["%s's Garrison"], UnitName("player"))
-			elseif (me.db.profile.hearthText == "both") then
-				name = format(L["%s's Garrison - %s"], UnitName("player"), GetBindLocation())
-			end
-			-- Hearthstone macro
-			me.broker[button].sab:SetAttribute("type", "macro")
-			local macro = L["/use "]
-			if (canTeleport) then macro = macro .. format(L["[btn:1] item:%d;"], teleport) end
-			if (canPortal) then macro = macro .. format(L["[btn:2] item:%d;"], portal) end
-			me.broker[button].sab:SetAttribute("macrotext", macro)
-		else
-		-- Spells
-			me.broker[button].sab:SetAttribute("type", "spell")
-			if (IsInGroup()) then
-				me.broker[button].sab:SetAttribute("spell1", portal)
-				me.broker[button].sab:SetAttribute("spell2", teleport)
-				if (canPortal) then
-					me.broker[button].text:SetTextColor(1,1,1)
-					me.broker[button].sab:Enable()
-				else
-					me.broker[button].text:SetTextColor(0.5,0.5,0.5)
-					me.broker[button].sab:Disable()
-				end
-			else
-				me.broker[button].sab:SetAttribute("spell1", teleport)
-				me.broker[button].sab:SetAttribute("spell2", portal)
-				if (canTeleport) then
-					me.broker[button].text:SetTextColor(1,1,1)
-					me.broker[button].sab:Enable()
-				else
-					me.broker[button].text:SetTextColor(0.5,0.5,0.5)
-					me.broker[button].sab:Disable()
-				end
-			end
-		end
 		-- Text
 		me.broker[button].text:SetPoint("CENTER", me.broker[button], "CENTER", 0, 1)
 		me.broker[button].text:SetText(name)
@@ -223,12 +149,6 @@ function me:UpdateUI_Broker()
 			me.broker[button]:SetBackdropColor(color2.r, color2.g, color2.b, 0.8)
 		end
 		toggle = not toggle
-	end
-	
-	-- Set all the buttons to the same size
-	buttonHeight = buttonHeight + 2
-	for n = 1, me.MAX_BUTTONS do
-		me.broker["button"..tostring(n)]:SetSize(buttonWidth, buttonHeight)
 	end
 	
 	me:Helper_UpdateBrokerInfoText()
@@ -304,12 +224,7 @@ end
 
 
 function me:Helper_UpdateBrokerInfoText()
-	local infoText = L["|cff00ff00Left-Click|r to Toggle |cff00ffffPortable|r.\n|cff00ff00Right-Click|r for Portable |cff00ffffOptions|r.\n\n"]
-	if (IsInGroup()) then
-		infoText = infoText..L["|cff00ff00Left-Click|cffffff00 Destination|r to Open a |cff00ffffPortal|r.\n|cff00ff00Right-Click|cffffff00 Destination|r to |cff00ffffTeleport|r."]
-	else
-		infoText = infoText..L["|cff00ff00Left-Click|cffffff00 Destination|r to |cff00ffffTeleport|r.\n|cff00ff00Right-Click|cffffff00 Destination|r to Open a |cff00ffffPortal|r."]
-	end
+	local infoText = L["Left-Click to Toggle Main Frame.\nRight-Click for Options."]
 	me.broker.info.text:SetText(infoText)
 	me.broker.info:SetHeight(me.broker.info.text:GetStringHeight())
 end
