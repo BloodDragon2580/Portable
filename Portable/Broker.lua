@@ -127,30 +127,6 @@ function me:UpdateUI_Broker()
 		if (me.db.profile.learnOrder) then me:Helper_LearnOrder("alliance") end
 	end
 	
-	-- Set the Secure Actions
-	local toggle = true
-	for n = 1, me.MAX_BUTTONS do
-		local button = "button"..tostring(n)
-		
-		-- Text
-		me.broker[button].text:SetPoint("CENTER", me.broker[button], "CENTER", 0, 1)
-		me.broker[button].text:SetText(name)
-		
-		if (me.broker[button].text:GetStringWidth() > buttonWidth) then
-			buttonWidth = me.broker[button].text:GetStringWidth()
-		end
-		if (me.broker[button].text:GetStringHeight() > buttonHeight) then
-			buttonHeight = me.broker[button].text:GetStringHeight()
-		end
-		
-		if (toggle) then
-			me.broker[button]:SetBackdropColor(color1.r, color1.g, color1.b, 0.8)
-		else
-			me.broker[button]:SetBackdropColor(color2.r, color2.g, color2.b, 0.8)
-		end
-		toggle = not toggle
-	end
-	
 	me:Helper_UpdateBrokerInfoText()
 	
 	
