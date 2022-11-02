@@ -53,6 +53,7 @@ L["Profiles  |c00000000Portable"] = "Profiles"
 
 --A
 L["Always Show"] = "Always Show"
+L["Apply"] = "Übernehmen"
 
 --B
 L["Background Artwork"] = "Hintergrundgrafik"
@@ -72,6 +73,7 @@ L["Color to Tint the Border Artwork.\\n|cffffff00Note, only for the Simple Frame
 L["Color to Tint the Container Background.\\n|cffffff00Note, most images require White and Full Alpha to be seen|r."] = "Farbe, um den Behälterhintergrund zu tönen.\\n|cffffff00Beachte, dass für die meisten Bilder Weiß und Voll Alpha zu sehen sind|r."
 L["Container Background Color"] = "Hintergrundfarbe des Containers"
 L["Container Padding"] = "Containerauflage"
+L["Cancel"] = "Abbrechen"
 
 --F
 L["Font Face"] = "Schriftart"
@@ -107,6 +109,7 @@ L["Number of Icon Buttons per Row.\\n|cffffff00Note, only for Simple Rows icon l
 --O
 L["On Mouse Over"] = "On Mouse Over"
 L["OUTLINE"] = "OUTLINE"
+L["Okay"] = "Ok"
 
 --P
 L["Padding Space around the Button Icon Container Frame."] = "Padding Space um den Button Icon Container Frame."
@@ -126,3 +129,6 @@ L["Text Behaviour"] = "Text Verhalten"
 L["Text Color"] = "Text Farbe"
 L["Text Style"] = "Text Style"
 L["THICKOUTLINE"] = "THICKOUTLINE"
+
+
+L["Drag and Drop a List Item to Reorder the Spells."] = "Ziehe ein Teleport per Drag-and-Drop hoch und runter, um die Zauber neu anzuordnen."

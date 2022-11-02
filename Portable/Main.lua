@@ -753,7 +753,7 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button13:SetPoint("TOPLEFT", me.ui.button12, "TOPRIGHT", space, 0)
 		me.ui.button14:SetPoint("TOPLEFT", me.ui.button13, "TOPRIGHT", space, 0)	
 		me.ui.button15:SetPoint("TOPLEFT", me.ui.button14, "TOPRIGHT", space, 0)
-		me.ui.button16:SetPoint("TOPLEFT", me.ui.button14, "TOPRIGHT", space, 0)
+		me.ui.button16:SetPoint("TOPLEFT", me.ui.button15, "TOPRIGHT", space, 0)
 	
 	-- Simple Rows
 	elseif (me.db.profile.iconLayout  == 2) then
@@ -810,7 +810,7 @@ function me:UpdateUI_ButtonGrid()
 		
 		me.ui.button14:SetPoint("TOPLEFT", me.ui.button2, "TOPRIGHT", 0, -space)	
 		me.ui.button15:SetPoint("TOPLEFT", me.ui.button2, "BOTTOMRIGHT", 0, -space)
-		me.ui.button16:SetPoint("TOPLEFT", me.ui.button2, "BOTTOMRIGHT", 0, -space)
+		me.ui.button16:SetPoint("TOPLEFT", me.ui.button9, "BOTTOMRIGHT", 0, -space)
 		
 	-- Look at Me (LEFT) 超大! (左)
 	elseif (me.db.profile.iconLayout == 4) then
@@ -836,8 +836,8 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button13:SetPoint("TOPLEFT", me.ui.button12, "BOTTOMLEFT", 0, -space)
 		
 		me.ui.button14:SetPoint("TOPLEFT", me.ui.button10, "TOPRIGHT", 0, -space)
-		me.ui.button15:SetPoint("TOPLEFT", me.ui.button11, "TOPRIGHT", 0, -space)
-		me.ui.button16:SetPoint("TOPLEFT", me.ui.button11, "TOPRIGHT", 0, -space)
+		me.ui.button15:SetPoint("TOPLEFT", me.ui.button12, "TOPRIGHT", 0, -space)
+		me.ui.button16:SetPoint("TOPLEFT", me.ui.button13, "TOPRIGHT", 0, -space)
 		
 		
 	-- Look at Me (RIGHT) 超大! (右)
@@ -864,8 +864,8 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button13:SetPoint("TOPLEFT", me.ui.button12, "BOTTOMLEFT", 0, -space)
 
 		me.ui.button14:SetPoint("TOPRIGHT", me.ui.button10, "TOPLEFT", 0, -space)
-		me.ui.button15:SetPoint("TOPRIGHT", me.ui.button11, "TOPLEFT", 0, -space)
-		me.ui.button16:SetPoint("TOPRIGHT", me.ui.button11, "TOPLEFT", 0, -space)
+		me.ui.button15:SetPoint("TOPRIGHT", me.ui.button12, "TOPLEFT", 0, -space)
+		me.ui.button16:SetPoint("TOPRIGHT", me.ui.button13, "TOPLEFT", 0, -space)
 		
 		
 	-- Priority (RIGHT) 优先 (右) ... A few guildies have asked for a backwards Priority Layout, so here it is
@@ -885,20 +885,21 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button3:SetPoint("TOPRIGHT", me.ui.button2, "TOPLEFT", -space, 0)
 		me.ui.button4:SetPoint("TOPRIGHT", me.ui.button3, "TOPLEFT", -space, 0)
 		me.ui.button5:SetPoint("TOPRIGHT", me.ui.button4, "TOPLEFT", -space, 0)
+		me.ui.button6:SetPoint("TOPRIGHT", me.ui.button5, "TOPLEFT", -space, 0)
+
 		
-		me.ui.button6:SetPoint("RIGHT", me.ui.button1, "LEFT", -space, 0)
-		me.ui.button7:SetPoint("TOPRIGHT", me.ui.button6, "TOPLEFT", -space, 0)
+		me.ui.button7:SetPoint("BOTTOMRIGHT", me.ui.button1, "BOTTOMLEFT", -space, 0)
 		me.ui.button8:SetPoint("TOPRIGHT", me.ui.button7, "TOPLEFT", -space, 0)
-		
-		me.ui.button9:SetPoint("BOTTOMRIGHT", me.ui.button1, "BOTTOMLEFT", -space, 0)
+		me.ui.button9:SetPoint("TOPRIGHT", me.ui.button8, "TOPLEFT", -space, 0)
 		me.ui.button10:SetPoint("TOPRIGHT", me.ui.button9, "TOPLEFT", -space, 0)
 		me.ui.button11:SetPoint("TOPRIGHT", me.ui.button10, "TOPLEFT", -space, 0)
-		me.ui.button12:SetPoint("TOPRIGHT", me.ui.button11, "TOPLEFT", -space, 0)
+		
+		
+		me.ui.button12:SetPoint("RIGHT", me.ui.button1, "LEFT", -space, 0)
 		me.ui.button13:SetPoint("TOPRIGHT", me.ui.button12, "TOPLEFT", -space, 0)
-
-		me.ui.button14:SetPoint("TOPRIGHT", me.ui.button16, "TOPLEFT", -space, 0)
-		me.ui.button15:SetPoint("TOPRIGHT", me.ui.button5, "TOPLEFT", -space, 0)
-		me.ui.button16:SetPoint("TOPRIGHT", me.ui.button5, "TOPLEFT", -space, 0)		
+		me.ui.button14:SetPoint("TOPRIGHT", me.ui.button13, "TOPLEFT", -space, 0)
+		me.ui.button15:SetPoint("TOPRIGHT", me.ui.button14, "TOPLEFT", -space, 0)
+		me.ui.button16:SetPoint("TOPRIGHT", me.ui.button15, "TOPLEFT", -space, 0)		
 		
 	-- Invalid
 	else

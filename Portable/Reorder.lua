@@ -98,6 +98,9 @@ function me:CreateUI_Reorder()
 		li.text:SetJustifyH("CENTER")
 		li.text:SetPoint("TOPLEFT", li, "TOPLEFT", 2, -2)
 		li.text:SetPoint("BOTTOMRIGHT", li, "BOTTOMRIGHT", -2, 2)
+		
+		li.text:SetFont("Fonts\\FRIZQT__.TTF", 14, "")
+
 		li:SetHeight(li.text:GetStringHeight() + 8)
 		me:MakeText(li, "icontid", itemSize, "")
 		li.icontid:SetPoint("LEFT", li, "LEFT", 2, 0)
@@ -198,12 +201,3 @@ function me:Do_ReorderList(node)
 	end
 	me:UpdateUI_Reorder()
 end
-
-
-
-
-
-
-
-
-
