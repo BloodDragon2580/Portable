@@ -5,6 +5,7 @@ local L = me.L
 
 L[myName] = "|cff0088ffPortable|cff808080: |r"
 
+L["Use \n\n|cffFF3F40/console ActionButtonUseKeyDown 1|r\n\n in chat to make portable work."] = "Benutze \n\n|cffFF3F40/console ActionButtonUseKeyDown 1|r\n\nim chat damit Portable funktioniert."
 --Portal/Teleport Names
 L["Boralus"] = "Boralus"
 L["Dalaran - Broken Isles"] = "Dalaran - Verheerte Inseln"
@@ -31,7 +32,7 @@ L["Warspear"] = "Kriegsspeer"
 L["Valdrakken"] = "Valdrakken"
 
 --Minimap Button
-L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "|cff00ff00Links Klick|r zum Öffnen des Frames.\n|cff00ff00Rechts Klick|r für Optionen"
+L["Left-Click to Toggle Main Frame.\nRight-Click for Options.\n"] = "|cff00ff00Links Klick|r zum Öffnen des Frames.\n|cff00ff00Rechts Klick|r für Optionen"
 
 --Commands
 L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."] = "Version |cffffff00%s |cff00ff00Geladen|r.  Nutze |cffffff00%s|r um die Benutzeroberfläche umzuschalten |cffa0a0a0(oder verwenden eine Macro)|r, |cffffff00%s %s|r für Befehlsliste."
