@@ -41,7 +41,7 @@ L["help"] = "Aide"
 L["Close Portable."] = "Fermer Portable"
 L["Open Portable Configuration."] = "Ouvrir la configuration de Portable"
 L["Manually Change the Spell Order for %s."] = "Changer manuellement l'ordre du sort pour %s."
-L["/use "] = "/use"
+L["/use "] = "/use "
 L["About"] = "Über"
 
 --Settings Menue

@@ -40,7 +40,7 @@ L["help"] = "hilfe"
 L["Close Portable."] = "Schließe Portable"
 L["Open Portable Configuration."] = "Öffne Portable Einstellungen"
 L["Manually Change the Spell Order for %s."] = "Manuelles ändern der Zauberreihenfolge für %s."
-L["/use "] = "/use"
+L["/use "] = "/use "
 L["About"] = "Über"
 
 L["Frame Style  |c00000000Portable"] = "Frame Style"
