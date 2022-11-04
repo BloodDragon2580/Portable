@@ -8,7 +8,7 @@ me.brokerFeed = me.LDB:NewDataObject(myName, { type = "data source", text = "" }
 
 
 -- Default Data
-me.brokerFeed.text = L["Portable "]
+me.brokerFeed.text = L["Portable"]
 me.brokerFeed.icon = "Interface\\Icons\\spell_arcane_portaldalaran"
 
 -- There has to be a better way to handle the hearthstone, but for now, this works
@@ -61,7 +61,7 @@ function me:CreateUI_Broker()
 	me.broker.header.text:SetJustifyV("TOP")
 	me.broker.header.text:SetTextColor(0.0,0.5,1.0, 1.0)
 	me.broker.header.text:SetNonSpaceWrap(false)
-	me.broker.header.text:SetText(L["Portable "])
+	me.broker.header.text:SetText(L["Portable"])
 	me.broker.header:SetHeight(me.broker.header.text:GetStringHeight())
 	
 	-- Buttons
@@ -74,7 +74,7 @@ function me:CreateUI_Broker()
 		
 		me.broker[button].sab = CreateFrame("Button", myName.."BrokerUIButton"..tostring(n).."SAB", me.broker[button], "SecureActionButtonTemplate")
 		me.broker[button].sab:SetAllPoints(me.broker[button])
-		me.broker[button].sab:RegisterForClicks("LeftButtonDown", "RightButtonDown")
+		me.broker[button].sab:RegisterForClicks("anyUp", "anyDown")
 		me.broker[button].sab:HookScript("OnClick", function(self, ...)
 				me:DoScript_OnClick(self, ...)
 				me:HideUI_Broker()
@@ -103,7 +103,7 @@ function me:CreateUI_Broker()
 	me.broker.info.text:SetJustifyH("LEFT")
 	me.broker.info.text:SetTextColor(0.7,0.7,0.7, 1.0)
 	me.broker.info.text:SetNonSpaceWrap(false)
-	me.broker.info.text:SetText(L["Left-Click to Toggle Main Frame.\nRight-Click for Options."])
+	me.broker.info.text:SetText(L["|cff00ff00Left-Click|r to Toggle Main Frame.\n|cff00ff00Right-Click|r for Options.\n"])
 	me.broker.info:SetHeight(me.broker.info.text:GetStringHeight())
 end
 
@@ -200,7 +200,7 @@ end
 
 
 function me:Helper_UpdateBrokerInfoText()
-	local infoText = L["Left-Click to Toggle Main Frame.\nRight-Click for Options."]
+	local infoText = L["|cff00ff00Left-Click|r to Toggle Main Frame.\n|cff00ff00Right-Click|r for Options.\n\nUse \n\n|cffFF3F40/console ActionButtonUseKeyDown 1|r\n\n in chat to make portable work."]
 	me.broker.info.text:SetText(infoText)
 	me.broker.info:SetHeight(me.broker.info.text:GetStringHeight())
 end
