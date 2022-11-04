@@ -26,7 +26,7 @@ L["Boralus"] = "伯拉勒斯"
 L["Dazaralor"] = "祖达萨"
 L["Oribos"] = "奥利波斯"
 L["Valdrakken"] = "瓦德拉肯"
-
+L["Old Dalaran"] = "远古达拉然"
 
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "左键点击打开主窗口。右键点击打开设置窗口。"
 
