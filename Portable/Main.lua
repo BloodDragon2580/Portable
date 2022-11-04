@@ -5,16 +5,12 @@ local L = me.L
 BINDING_HEADER_Portable = L["Portable"]
 BINDING_NAME_PortableToggle = L["Toggle Frame"]
 
-
-
 -- Initialize the Shared Media Library
 me.lsm = LibStub("LibSharedMedia-3.0")
 local lsm = me.lsm	-- libSharedMedia shorthand
 
 -- Register a SOLID option for the Border library
 lsm:Register("border", "Solid", [[Interface\Buttons\WHITE8X8]])
-
-
 
 --	Default values for all options.
 local defaults = {
@@ -128,7 +124,6 @@ me.hSpell = {
 -- Hearthstone: item:6948						[8690]	 	<-Spell ID, these can not be called directly, but still provide icon texture data
 -- Garrison Hearthstone: item:110560		[171253]
 
-
 -- Local Variables
 me.MAX_BUTTONS = #(me.aSpell)
 -- Possibly add options for TitleBar (Large / Small / Hidden) ?  (DEV: Currently Doesn't)
@@ -146,8 +141,6 @@ local ITEM_INNKEEPERSDAUGHTER = 64488		-- Item ID for the Archeology item The In
 	Ethereal Portal	54452	(Trading Card Game, *see above*)
 ]]--
 
-
-
 --[[
 	Event Handling Frame.
 ]]--
@@ -160,8 +153,6 @@ Event:SetScript("OnEvent", function(self, event, ...)
 	end
 end)
 Event:RegisterEvent("ADDON_LOADED")
-
-
 
 --[[
 	Event: AddOn Loaded
@@ -203,7 +194,6 @@ function Event:ADDON_LOADED(addonName)
 	me:print(format(L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."], me:GetAddonInfo("Version"), L["/portable"], L["/portable"], L["help"]))
 end
 
-
 --[[
 	Callback of the AceDB profile changes.
 	Used to update graphical alterations to the UI.
@@ -211,7 +201,6 @@ end
 function me:UpdateOptions()
 	me.UpdateUI()
 end
-
 
 --[[ ==========================================================================
 	Create the UI Elements
@@ -230,7 +219,6 @@ function me:CreateUI()
 	me.ui.container:SetFrameLevel(1)
 	me.ui.area:SetFrameLevel(10)			-- Make sure the Area display is on top of the buttons container
 end
-
 
 -- Create the Main Frame, everything else is attached to this frame
 function me:CreateUI_Frame()
@@ -315,7 +303,6 @@ function me:CreateUI_Frame()
 	
 end
 
-
 -- Create a "Sizer" allowing the user to resize the frame, with an area display
 function me:CreateUI_Sizer()
 	-- This will cover the entire main frame while resizing
@@ -355,12 +342,10 @@ function me:CreateUI_Sizer()
 		end)
 end
 
-
 -- Simple Container Frame that will hold all the Portable Buttons
 function me:CreateUI_Container()
 	me.ui.container = CreateFrame("Frame", "PortableUIContainer", me.ui)
 end
-
 
 -- Create the Clickable Portable Buttons
 function me:CreateUI_Buttons()
@@ -415,7 +400,6 @@ function me:UpdateUI()
 	me:UpdateUI_IconSizeFrame()
 	me:UpdateUI_TextStyle()
 end
-
 
 -- Update the Frame as it is being Resized
 function me:UpdateUI_FrameSize(width, height, fix)
@@ -481,7 +465,6 @@ function me:UpdateUI_FrameSize(width, height, fix)
 	end
 end
 
-
 -- Size the Frame around the Icon Size
 function me:UpdateUI_IconSizeFrame()
 	local width, height = 0, 0
@@ -529,7 +512,6 @@ function me:UpdateUI_IconSizeFrame()
 	me.ui:SetSize(width, height)
 end
 
-
 -- Update the Container frame's simple style
 function me:UpdateUI_Container(titlePad, pad)
 	me:SetFrameStyle(me.ui.container, nil, nil, nil, nil, me.db.profile.conBackColor.R, me.db.profile.conBackColor.G, me.db.profile.conBackColor.B, me.db.profile.conBackColor.A, me.db.profile.conBorderColor.R, me.db.profile.conBorderColor.G, me.db.profile.conBorderColor.B, me.db.profile.conBorderColor.A)
@@ -537,7 +519,6 @@ function me:UpdateUI_Container(titlePad, pad)
 	me.ui.container:SetPoint("TOPLEFT", me.ui, "TOPLEFT", pad, -titlePad - pad)
 	me.ui.container:SetPoint("BOTTOMRIGHT", me.ui, "BOTTOMRIGHT", -pad, pad)
 end
-
 
 -- Show/Hide Artwork Textures
 function me:UpdateUI_ShowTextures(on)
@@ -612,8 +593,7 @@ function me:UpdateUI_FrameStyle()
 		me.ui.btnClose:SetPoint("TOPRIGHT", me.ui, "TOPRIGHT", -4, -4)
 		-- Art Textures
 		me:UpdateUI_ShowTextures(false)
-		
-		
+
 	-- Arcane
 	elseif (me.db.profile.frameStyle == 2) then
 		me:UpdateUI_Container(titleSize, 20)
@@ -699,7 +679,6 @@ function me:UpdateUI_FrameStyle()
 	end
 end
 
-
 -- Update the Portable Buttons grid
 function me:UpdateUI_ButtonGrid()
 	local pad = me.db.profile.iconPadding
@@ -767,8 +746,7 @@ function me:UpdateUI_ButtonGrid()
 				r = r + 1	-- Row++
 			end
 		end
-	
-	
+
 	-- Center of Attention 中间为主
 	elseif (me.db.profile.iconLayout == 3) then
 		me.ui.button4:SetPoint("TOPLEFT", me.ui.container, "TOPLEFT", pad, -pad)
@@ -902,7 +880,6 @@ function me:UpdateUI_ButtonGrid()
 	end
 end
 
-
 -- Update Button Actions, this makes the buttons cast spells when you click them
 function me:UpdateUI_ButtonActions()
 	local spells, order, n
@@ -1014,15 +991,15 @@ function me:UpdateUI_ButtonActions()
 		-- This is a spell
 		else
 			me.ui[button].sab:SetAttribute("type", "spell")
-			--if (IsInGroup()) then
-				--me.ui[button].sab:SetAttribute("spell1", portal)
-				--me.ui[button].sab:SetAttribute("spell2", teleport)
-				--me:Helper_ShowDisabled(canPortal, button, artPath..art..".blp")
-			--else
+			if (IsInGroup()) then
+				me.ui[button].sab:SetAttribute("spell1", portal)
+				me.ui[button].sab:SetAttribute("spell2", teleport)
+				me:Helper_ShowDisabled(canPortal, button, artPath..art..".blp")
+			else
 				me.ui[button].sab:SetAttribute("spell1", teleport)
 				me.ui[button].sab:SetAttribute("spell2", portal)
 				me:Helper_ShowDisabled(canTeleport, button, artPath..art..".blp")
-			--end
+			end
 		end
 		-- Show the button
 		me.ui[button]:Show()
@@ -1033,7 +1010,6 @@ function me:UpdateUI_ButtonActions()
 		me.ui["button"..tostring(n)]:Hide()
 	end
 end
-
 
 -- Update the Text Display
 function me:UpdateUI_TextStyle()
@@ -1049,31 +1025,22 @@ function me:UpdateUI_TextStyle()
 	end
 end
 
-
-
-
-
-
-
-
-
 --[[ ==========================================================================
 	Helpers
 ========================================================================== ]]--
 -- Show the Disabled Texture and Hide the Button
 function me:Helper_ShowDisabled(on, button, file)
-	--if (on) then
-		--me.ui[button].sab:Show()
-		--me.ui[button].disabled:Hide() 
-	--else
-		--me.ui[button].sab:Hide()
-		--me.ui[button].disabled:SetTexture(file)
-		--me.ui[button].disabled:SetVertexColor(0.5, 0.5, 0.5)
-		--me.ui[button].disabled:SetDesaturated(true)
-		--me.ui[button].disabled:Show()
-	--end
+	if (on) then
+		me.ui[button].sab:Show()
+		me.ui[button].disabled:Hide() 
+	else
+		me.ui[button].sab:Hide()
+		me.ui[button].disabled:SetTexture(file)
+		me.ui[button].disabled:SetVertexColor(0.5, 0.5, 0.5)
+		me.ui[button].disabled:SetDesaturated(true)
+		me.ui[button].disabled:Show()
+	end
 end
-
 
 -- Adjust font Face, Size, & Flags settings Only if changed, each time a new font instance is created, so we don't want to change unless needed
 function me:Helper_AdjustFont(frame, newface, newsize, newflags)
@@ -1085,7 +1052,6 @@ function me:Helper_AdjustFont(frame, newface, newsize, newflags)
 	-- Set the color
 	frame:SetTextColor(me.db.profile.textColor.R, me.db.profile.textColor.G, me.db.profile.textColor.B, me.db.profile.textColor.A)
 end
-
 
 -- Set the Spell Order to the Learning Spell Order
 function me:Helper_LearnOrder(faction)
@@ -1152,7 +1118,6 @@ function me:Helper_LearnOrder(faction)
 	end
 end
 
-
 -- Reset the Learning Spell Order
 function me:Helper_ResetLearning(faction)
 	local n, total
@@ -1176,7 +1141,6 @@ function me:Helper_ResetLearning(faction)
 		me:print("error", L["Invalid Faction in Helper_ResetLearning."])
 	end
 end
-
 
 -- Reset a Faction's Spell Order
 function me:Helper_ResetOrder(faction)
@@ -1202,7 +1166,6 @@ function me:Helper_ResetOrder(faction)
 	end
 end
 
-
 -- Is item in player's bags?
 function me:Helper_IsInBags(itemID)
 	local bag, slot
@@ -1215,7 +1178,6 @@ function me:Helper_IsInBags(itemID)
 	end
 	return false
 end
-
 
 -- Get the Height for the Toolbar
 function me:Helper_GetToolbarSize()
@@ -1231,14 +1193,12 @@ function me:Helper_GetToolbarSize()
 	return titleSize, toolSize
 end
 
-
 -- Show the Configuration
 function me:Helper_ShowConfig()
 --	InterfaceAddOnsList_Update()	-- If the Blizzard Options Frame hasn't been Opened yet, OpenToCategory will fail, so we force a refresh first
 	InterfaceOptionsFrame_OpenToCategory(L["Frame Style  |c00000000Portable"])	-- By selecting a SubCategory first, the Options Tree will be open when we select the main Category
 	InterfaceOptionsFrame_OpenToCategory(myName)	-- Select the main category (which is setup as an About frame)
 end
-
 
 -- Enable/Disable close with ESCape key
 function me:Helper_EscapeToClose()
@@ -1265,14 +1225,6 @@ function me:Helper_IsSpecialFrame()
 	end
 	return nil
 end
-
-
-
-
-
-
-
-
 
 --[[ ==========================================================================
 	Widget Handlers
@@ -1308,15 +1260,6 @@ function me:DoScript_OnClick(self, ...)
 	me.ui:Hide()
 end
 
-
-
-
-
-
-
-
-
-
 --[[ ==========================================================================
 	Minimap Button
 ========================================================================== ]]--
@@ -1329,14 +1272,6 @@ function me:MinimapButtonClick(button)
 	end
 end
 ]]--
-
-
-
-
-
-
-
-
 
 --[[ ==========================================================================
 	Simple Command Line
@@ -1376,13 +1311,3 @@ function me:Slash_Help()
 	me:print(format(L["    |cffff8800%s|r : Show the Manage Spell Order UI for %s."], L["sort"], UnitFactionGroup("player")))
 	me:print(format(L["    |cffff8800%s|r : Show usage and command list."], L["help"]))
 end
-
-
-
-
-
-
-
-
-
-
