@@ -379,7 +379,7 @@ function me:CreateUI_Buttons()
 		
 		-- The Secure Action Button
 		me.ui[button].sab = CreateFrame("Button", "PortableUIButton"..tostring(n).."SAB", me.ui[button], "SecureActionButtonTemplate")
-		me.ui[button].sab:RegisterForClicks("anyUp", "anyDown")
+		me.ui[button].sab:RegisterForClicks("LeftButtonDown", "RightButtonDown")
 		me.ui[button].sab:SetScript("OnEnter", function(self, ...)
 				me:DoScript_OnEnter(self, ...)
 			end)

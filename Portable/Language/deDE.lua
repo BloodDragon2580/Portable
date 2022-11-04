@@ -56,7 +56,7 @@ L["Extra Stuff  |c00000000Portable"] = "Extra Stuff"
 L["Profiles  |c00000000Portable"] = "Profiles"
 
 --A
-L["Always Show"] = "Always Show"
+L["Always Show"] = "Immer zeigen"
 L["Apply"] = "Übernehmen"
 
 --B

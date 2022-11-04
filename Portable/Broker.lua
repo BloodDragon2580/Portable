@@ -74,7 +74,7 @@ function me:CreateUI_Broker()
 		
 		me.broker[button].sab = CreateFrame("Button", myName.."BrokerUIButton"..tostring(n).."SAB", me.broker[button], "SecureActionButtonTemplate")
 		me.broker[button].sab:SetAllPoints(me.broker[button])
-		me.broker[button].sab:RegisterForClicks("anyUp", "anyDown")
+		me.broker[button].sab:RegisterForClicks("LeftButtonDown", "RightButtonDown")
 		me.broker[button].sab:HookScript("OnClick", function(self, ...)
 				me:DoScript_OnClick(self, ...)
 				me:HideUI_Broker()
