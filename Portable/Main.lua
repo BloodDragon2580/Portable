@@ -1160,8 +1160,8 @@ end
 function me:Helper_IsInBags(itemID)
 	local bag, slot
 	for bag = 0, NUM_BAG_SLOTS do
-		for slot = 1, GetContainerNumSlots(bag) do
-			if (GetContainerItemID(bag, slot)) == itemID then
+		for slot = 1, C_Container.GetContainerNumSlots(bag) do
+			if (C_Container.GetContainerItemID(bag, slot)) == itemID then
 				return true
 			end
 		end
