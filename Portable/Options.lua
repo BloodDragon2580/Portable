@@ -646,7 +646,6 @@ local options = {
 					width = "double",
 					values = {
 						["hearthstone"] = L["Hearthstone"],
-						["garrison"] = L["Faction Garrison"],
 					},
 					get = function() return me.db.profile.hearthStone end,
 					set = function(self, v)
@@ -663,8 +662,6 @@ local options = {
 					width = "double",
 					values = {
 						["hearthstone"] = L["Hearthstone Bind Location"],
-						["garrison"] = L["Garrison Name"],
-						["both"] =L["Both, Garrison and Hearthstone"],
 					},
 					get = function() return me.db.profile.hearthText end,
 					set = function(self, v)
@@ -685,7 +682,6 @@ local options = {
 					desc = L["Where you go when you Left-Click."],
 					values = {
 						["hearthstone"] = L["Hearthstone"],
-						["garrison"] = L["Garrison Hearthstone"],
 					},
 					get = function() return me.db.profile.hearthLeft end,
 					set = function(self, v)
@@ -701,7 +697,6 @@ local options = {
 					desc = L["Where you go when you Right-Click."],
 					values = {
 						["hearthstone"] = L["Hearthstone"],
-						["garrison"] = L["Garrison Hearthstone"],
 					},
 					get = function() return me.db.profile.hearthRight end,
 					set = function(self, v)

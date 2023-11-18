@@ -95,7 +95,7 @@ me.aSpell = {
 	{ pid = 344597, tid = 344587, name = L["Oribos"], art="nOribos" },	--14
 	{ pid = 395289, tid = 395277, name = L["Valdrakken"], art="nValdrakken" },	--15
 	{ pid = 120146, tid = 120145, name = L["Old Dalaran"], art="nOldDalaran" },	--16
-	{ pid = 171253, tid = 8690, name = L["Hearthstone"], art="aHearthstone" },	--17	
+	{ pid = 8690, tid = 8690, name = L["Hearthstone"], art="aHearthstone" },	--17	
 }
 
 -- Horde Portal/Teleport Spell ID's + Friendly Names
@@ -117,7 +117,7 @@ me.hSpell = {
 	{ pid = 344597, tid = 344587, name = L["Oribos"], art="nOribos" },	--14
 	{ pid = 395289, tid = 395277, name = L["Valdrakken"], art="nValdrakken" },	--15
 	{ pid = 120146, tid = 120145, name = L["Old Dalaran"], art="nOldDalaran" },	--16
-	{ pid = 171253, tid = 8690, name = L["Hearthstone"], art="hHearthstone" },	--17	
+	{ pid = 8690, tid = 8690, name = L["Hearthstone"], art="hHearthstone" },	--17	
 }
 
 -- Hearthstones are ITEMS not SPELLS!
@@ -133,7 +133,6 @@ local MIN_WIDTH = 320		-- Minimum Size should asjust depending on the Frame Styl
 
 local HEARTHSTONEID = 8690		-- Spell ID used to identify hearthstone special button
 local ITEM_HEARTHSTONE = 6948	-- Item ID for the Hearthstone
-local ITEM_GARRISON = 110560		-- Item ID for the Garrison Hearthstone
 local ITEM_INNKEEPERSDAUGHTER = 64488		-- Item ID for the Archeology item The Innkeeper's Daughter
 --[[ There is also, but not included for reasons...
 	Ruby Slippers	28585	(Old Content from Karazhan)
@@ -913,9 +912,6 @@ function me:UpdateUI_ButtonActions()
 					teleport = ITEM_INNKEEPERSDAUGHTER
 					canTeleport = me:Helper_IsInBags(ITEM_INNKEEPERSDAUGHTER)
 				end
-			elseif (me.db.profile.hearthLeft == "garrison") then
-				teleport = ITEM_GARRISON
-				canTeleport = me:Helper_IsInBags(ITEM_GARRISON)
 			else
 				canTeleport = false
 			end
@@ -926,9 +922,6 @@ function me:UpdateUI_ButtonActions()
 					portal = ITEM_INNKEEPERSDAUGHTER
 					canPortal = me:Helper_IsInBags(ITEM_INNKEEPERSDAUGHTER)
 				end
-			elseif (me.db.profile.hearthRight == "garrison") then
-				portal = ITEM_GARRISON
-				canPortal = me:Helper_IsInBags(ITEM_GARRISON)
 			else
 				canPortal = false
 			end
@@ -939,12 +932,6 @@ function me:UpdateUI_ButtonActions()
 			   else
 				art = "aHearthstone"
 			   end
-			elseif (me.db.profile.hearthStone == "garrison") then
-				if (isAlliance) then
-					art = "aGarrison"
-				else
-					art = "hGarrison"
-				end
 			else
 			   if (UnitFactionGroup("player") == "Horde") then
 				art = "hHearthstone"
@@ -955,10 +942,6 @@ function me:UpdateUI_ButtonActions()
 			-- Sort out the name text
 			if (me.db.profile.hearthText == "hearthstone") then
 				name = format(L["%s"], GetBindLocation())
-			elseif (me.db.profile.hearthText == "garrison") then
-				name = format(L["%s's Garrison"], UnitName("player"))
-			elseif (me.db.profile.hearthText == "both") then
-				name = format(L["%s's Garrison ----- %s"], UnitName("player"), GetBindLocation())
 			else
 				name = ""
 			end

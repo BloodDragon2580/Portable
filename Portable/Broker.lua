@@ -14,7 +14,6 @@ me.brokerFeed.icon = "Interface\\Icons\\spell_arcane_portaldalaran"
 -- There has to be a better way to handle the hearthstone, but for now, this works
 local HEARTHSTONEID = 8690			-- Spell ID used to identify hearthstone special button
 local ITEM_HEARTHSTONE = 6948	-- Item ID for the Hearthstone
-local ITEM_GARRISON = 110560		-- Item ID for the Garrison Hearthstone
 local ITEM_INNKEEPERSDAUGHTER = 64488		-- Item ID for the Archeology item The Innkeeper's Daughter
 
 
