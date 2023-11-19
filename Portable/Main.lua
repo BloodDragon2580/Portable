@@ -59,10 +59,10 @@ local defaults = {
 		-- Extra Stuff
 		keyEscape = true,	-- Close when ESCAPE is pressed
 		
-		hearthLeft = "garrison",				-- Left-Click hearthstone button does this action (hearthstone / garrison)
+		hearthLeft = "hearthstone",				-- Left-Click hearthstone button does this action (hearthstone / garrison)
 		hearthRight = "hearthstone",		-- Right-Click hearthstone button does this action (hearthstone / garrison)
-		hearthStone = "garrison",			-- Which graphic to provide, a Hearthstone or your Faction Garrison (hearthstone / garrison)
-		hearthText = "both",					-- What text to display on the button (garrion / hearthstone / both)
+		hearthStone = "hearthstone",			-- Which graphic to provide, a Hearthstone or your Faction Garrison (hearthstone / garrison)
+		hearthText = "hearthstone",					-- What text to display on the button (garrion / hearthstone / both)
 		
 		minimap = {		-- LibDBIcon
 			hide = false,
