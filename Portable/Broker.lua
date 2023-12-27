@@ -73,7 +73,7 @@ function me:CreateUI_Broker()
 		
 		me.broker[button].sab = CreateFrame("Button", myName.."BrokerUIButton"..tostring(n).."SAB", me.broker[button], "SecureActionButtonTemplate")
 		me.broker[button].sab:SetAllPoints(me.broker[button])
-		me.broker[button].sab:RegisterForClicks("LeftButtonDown", "RightButtonDown")
+		me.broker[button].sab:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 		me.broker[button].sab:HookScript("OnClick", function(self, ...)
 				me:DoScript_OnClick(self, ...)
 				me:HideUI_Broker()
@@ -102,7 +102,7 @@ function me:CreateUI_Broker()
 	me.broker.info.text:SetJustifyH("LEFT")
 	me.broker.info.text:SetTextColor(0.7,0.7,0.7, 1.0)
 	me.broker.info.text:SetNonSpaceWrap(false)
-	me.broker.info.text:SetText(L["|cff00ff00Left-Click|r to Toggle Main Frame.\n|cff00ff00Right-Click|r for Options.\n"])
+	me.broker.info.text:SetText(L["Left-Click to Toggle Main Frame.\nRight-Click for Options."])
 	me.broker.info:SetHeight(me.broker.info.text:GetStringHeight())
 end
 

@@ -36,7 +36,7 @@ L["Valdrakken"] = "Valdrakken"
 L["Old Dalaran"] = "Alt Dalaran"
 
 --Minimap Button
-L["|cff00ff00Left-Click|r to Toggle Main Frame.\n|cff00ff00Right-Click|r for Options.\n"] = "|cff00ff00Links Klick|r zum Öffnen des Frames.\n|cff00ff00Rechts Klick|r für Optionen.\n"
+L["Left-Click to Toggle Main Frame.\nRight-Click for Options.\n"] = "|cff00ff00Links Klick|r zum Öffnen des Frames.\n|cff00ff00Rechts Klick|r für Optionen"
 
 --Commands
 L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."] = "Version |cffffff00%s |cff00ff00Geladen|r.  Nutze |cffffff00%s|r um die Benutzeroberfläche umzuschalten |cffa0a0a0(oder verwenden eine Macro)|r, |cffffff00%s %s|r für Befehlsliste."

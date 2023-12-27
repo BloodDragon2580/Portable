@@ -15,8 +15,7 @@ end
 local function MinimapIcon_Enter(self)
 	GameTooltip:SetOwner(self, "ANCHOR_CURSOR")
 	GameTooltip:AddLine(L["Portable "], 1.0, 1.0, 1.0)
-	GameTooltip:AddLine(L["|cff00ff00Left-Click|r to Toggle Main Frame.\n|cff00ff00Right-Click|r for Options.\n"], 0.0, 1.0, 0.0, 1)
-	GameTooltip:AddLine(L["Use \n\n|cffFF3F40/console ActionButtonUseKeyDown 1|r\n\n in chat to make portable work."], 0.0, 1.0, 0.0, 1)
+	GameTooltip:AddLine(L["Left-Click to Toggle Main Frame.\nRight-Click for Options.\n"], 0.0, 1.0, 0.0, 1)
 	GameTooltip:Show()
 end
 
