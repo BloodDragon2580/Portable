@@ -2,6 +2,8 @@ if (GetLocale() ~= "ruRU") then return end
 local myName, me = ...
 local L = me.L
 
+L["ActionButtonUseKeyDown"] = "Use \n\n|cffFF3F40/console ActionButtonUseKeyDown 0|r\n\n in chat to make portable work."
+
 L[myName] = "|cff0088ffPortable|cff808080: |r"
 
 --Portal/Teleport Names

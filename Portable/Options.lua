@@ -12,11 +12,10 @@ local options = {
 		about = {
 			order = 0,	type = "group",	name = L["About"],
 			args = {
-				aboutheader1 = {	order = 1,	type = "header",	name = "",	},
-				aboutdesc1 = {	order = 2,	type = "description",	name = "|cff0088ff"..me:GetAddonInfo("Title"),	fontSize = "large",	width = "full",	},
-				aboutdesc2 = {	order = 3,	type = "description",	name  = "\n|cffc0c0c0"..L["Version"].."|cff606060: |cffffff00"..me:GetAddonInfo("Version").."|r\n|cffc0c0c0"..L["Author"].."|cff606060: |cffffff00"..me:GetAddonInfo("Author").."|r\n",	fontSize = "medium",	width = "full",	},
-				aboutdesc3 = {	order = 4,	type = "description",	name = "|cffa0a0a0    "..me:GetAddonInfo("Notes"),	fontSize = "small",	width = "full",	},
-				aboutdesc4 = {	order = 5, type = "description", name = "\n\n\n\n|TInterface\\AddOns\\Portable\\Artwork\\PortableLogo.blp:160:160:0:0:512:512:0:256:256:512|t|TInterface\\AddOns\\Portable\\Artwork\\PortableLogo.blp:160:320:0:0:512:512:0:512:0:256|t|TInterface\\AddOns\\Portable\\Artwork\\PortableLogo.blp:160:160:0:0:512:512:256:512:256:512|t", width = "full", },
+				aboutdesc2 = {	order = 3,	type = "description",	name = "\n|cffc0c0c0"..L["ActionButtonUseKeyDown"].."|r\n",	fontSize = "large",	width = "full",	},
+				aboutdesc3 = {	order = 4,	type = "description",	name  = "\n|cffc0c0c0"..L["Version"].."|cff606060: |cffffff00"..me:GetAddonInfo("Version").."|r\n|cffc0c0c0"..L["Author"].."|cff606060: |cffffff00"..me:GetAddonInfo("Author").."|r\n",	fontSize = "medium",	width = "full",	},
+				aboutdesc4 = {	order = 5,	type = "description",	name = "|cffa0a0a0    "..me:GetAddonInfo("Notes"),	fontSize = "small",	width = "full",	},
+				aboutdesc5 = {	order = 6, type = "description", name = "\n\n\n\n|TInterface\\AddOns\\Portable\\Artwork\\PortableLogo.blp:160:160:0:0:512:512:0:256:256:512|t|TInterface\\AddOns\\Portable\\Artwork\\PortableLogo.blp:160:320:0:0:512:512:0:512:0:256|t|TInterface\\AddOns\\Portable\\Artwork\\PortableLogo.blp:160:160:0:0:512:512:256:512:256:512|t", width = "full", },
 			},
 		},
 		

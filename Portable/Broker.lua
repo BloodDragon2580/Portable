@@ -199,7 +199,7 @@ end
 
 
 function me:Helper_UpdateBrokerInfoText()
-	local infoText = L["|cff00ff00Left-Click|r to Toggle Main Frame.\n|cff00ff00Right-Click|r for Options.\n\nUse \n\n|cffFF3F40/console ActionButtonUseKeyDown 1|r\n\n in chat to make portable work."]
+	local infoText = L["Left-Click to Toggle Main Frame.\nRight-Click for Options.\n"]
 	me.broker.info.text:SetText(infoText)
 	me.broker.info:SetHeight(me.broker.info.text:GetStringHeight())
 end

@@ -6,7 +6,7 @@ local L = me.L
 L[myName] = "|cff0088ffPortable|cff808080: |r"
 
 L["Portable"] = "Portable"
-L["Use \n\n|cffFF3F40/console ActionButtonUseKeyDown 1|r\n\n in chat to make portable work."] = "Benutze \n\n|cffFF3F40/console ActionButtonUseKeyDown 1|r\n\nim chat damit Portable funktioniert."
+L["ActionButtonUseKeyDown"] = "Benutze \n\n|cffFF3F40/console ActionButtonUseKeyDown 0|r\n\nim chat damit Portable funktioniert."
 L["|cff00ff00Left-Click|r to Toggle Main Frame.\n|cff00ff00Right-Click|r for Options.\n\nUse \n\n|cffFF3F40/console ActionButtonUseKeyDown 1|r\n\n in chat to make portable work."] = "|cff00ff00Links Klick|r zum Öffnen des Frames.\n|cff00ff00Rechts Klick|r für Optionen.\n\nBenutze \n\n|cffFF3F40/console ActionButtonUseKeyDown 1|r\n\nim chat damit Portable funktioniert."
 
 --Portal/Teleport Names
