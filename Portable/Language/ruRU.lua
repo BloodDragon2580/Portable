@@ -33,6 +33,8 @@ L["Warspear"] = "Копье войны"
 --Minimap Button
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "Left-Click to Toggle Main Frame.\nRight-Click for Options."
 
+LeftMouse = "Left-click to open |cff69CCF0Portable|r"
+RightMouse = "Right click to move the |cff69CCF0Button|r"
 
 --Commands
 L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."] = "Version |cffffff00%s |cff00ff00Geladen|r.  Nutze |cffffff00%s|r um die Benutzeroberfläche umzuschalten |cffa0a0a0(oder verwenden eine Macro)|r, |cffffff00%s %s|r für Befehlsliste."

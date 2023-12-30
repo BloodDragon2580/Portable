@@ -32,6 +32,8 @@ L["Old Dalaran"] = "远古达拉然"
 
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "左键点击打开主窗口。右键点击打开设置窗口。"
 
+LeftMouse = "Left-click to open |cff69CCF0Portable|r"
+RightMouse = "Right click to move the |cff69CCF0Button|r"
 
 L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."] = "Version |cffffff00%s |cff00ff00Geladen|r.  Nutze |cffffff00%s|r um die Benutzeroberfläche umzuschalten |cffa0a0a0(oder verwenden eine Macro)|r, |cffffff00%s %s|r für Befehlsliste."
 L["Close Portable."] = "关闭 Portable。"
@@ -225,5 +227,4 @@ L["Okay"] = "确定"
 L["Apply"] = "刷新"
 L["Cancel"] = "取消"
 L["Drag and Drop a List Item to Reorder the Spells."] = "拖曳重新排序"
-
 
