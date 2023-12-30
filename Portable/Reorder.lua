@@ -2,7 +2,7 @@ local myName, me = ...
 local L = me.L
 
 
-local itemSize = 17
+local itemSize = 18
 
 
 local itemHeight = 0	-- this is a placeholder, the code will change this value
@@ -33,6 +33,7 @@ function me:ShowReorderUI(mode)
 	
 	listFaction = mode
 	if (not me.rui) then me:CreateUI_Reorder() end
+	me:UpdateUI_Reorder()
 	me:UpdateUI_Reorder()
 	me.rui:Show()
 end
@@ -89,7 +90,7 @@ function me:CreateUI_Reorder()
 		li:EnableMouse(true)
 		li:SetMovable(true)
 		li:SetUserPlaced(false)
-		li:SetSize(300, 20)
+		li:SetSize(300, 40)
 		me:SetFrameStyle(li, nil, nil, nil, nil, 0,0.1,0.2,0.8, 0.2,0.2,0.2,1)
 		
 		-- List Item Text
@@ -98,14 +99,12 @@ function me:CreateUI_Reorder()
 		li.text:SetJustifyH("CENTER")
 		li.text:SetPoint("TOPLEFT", li, "TOPLEFT", 2, -2)
 		li.text:SetPoint("BOTTOMRIGHT", li, "BOTTOMRIGHT", -2, 2)
-		
-		li.text:SetFont("Fonts\\FRIZQT__.TTF", 14, "")
-
 		li:SetHeight(li.text:GetStringHeight() + 8)
-		me:MakeText(li, "icontid", itemSize, "")
-		li.icontid:SetPoint("LEFT", li, "LEFT", 2, 0)
-		me:MakeText(li, "iconpid", itemSize, "")
-		li.iconpid:SetPoint("RIGHT", li, "RIGHT", -2, 0)
+		li.text:SetFont("Fonts\\FRIZQT__.TTF", 18, "")
+		--me:MakeText(li, "icontid", itemSize, "")
+		--li.icontid:SetPoint("LEFT", li, "LEFT", 2, 0)
+		--me:MakeText(li, "iconpid", itemSize, "")
+		--li.iconpid:SetPoint("RIGHT", li, "RIGHT", -2, 0)
 		
 		-- Handlers
 		li:SetScript("OnEnter", function(self)
@@ -137,6 +136,7 @@ function me:CreateUI_Reorder()
 		end)
 	me:MakeButton(me.rui, "apply", L["Apply"])
 	me.rui.apply:SetScript("OnClick", function()
+			me:Apply_Reorder()	-- No idea why, but the 1st time of the 1st time, this fails
 			me:Apply_Reorder()
 			me.db.profile.learnOrder = false
 		end)
@@ -166,11 +166,15 @@ function me:UpdateUI_Reorder()
 	for n = 1, me.MAX_BUTTONS do
 		local pos = -pad - ((n - 1) * (itemHeight + 1))
 		local name = spells[order[n]].name
-		local _, _, iconTeleport = GetSpellInfo(spells[order[n]].tid)
-		local _, _, iconPortal = GetSpellInfo(spells[order[n]].pid)
+		--local _, _, iconTeleport = GetSpellInfo(spells[order[n]].tid)
+		--local _, _, iconPortal = GetSpellInfo(spells[order[n]].pid)
 		me.rui.list[n]:ClearAllPoints()
 		me.rui.list[n]:SetPoint("TOP", me.rui.container, "TOP", 0, pos)
 		me.rui.list[n].text:SetText(name)
+		me.rui.list[n].text:SetFont("Fonts\\FRIZQT__.TTF", 18, "")
+
+		--me.rui.list[n].icontid:SetText(format("|T%s:%d|t", iconTeleport, itemSize))
+		--me.rui.list[n].iconpid:SetText(format("|T%s:%d|t", iconPortal, itemSize))
 		me.rui.list[n]:Show()
 	end
 end
