@@ -48,8 +48,8 @@
 		<HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
 		<Scripts>
 			<OnLoad>
-				this:RegisterForClicks("LeftButtonUp","RightButtonUp")
-				this:RegisterForDrag("LeftButton","RightButton")
+				self:RegisterForClicks("LeftButtonUp")
+				self:RegisterForDrag("RightButton")
 			</OnLoad>
 			<OnMouseDown>
 				if button == "RightButton" and not self.isMoving then
@@ -64,11 +64,11 @@
 				end
 			</OnMouseUp>
 			<OnDragStart>
-				this:LockHighlight()
+				self:LockHighlight()
 				Portable_MinimapButton_DraggingFrame:Show()
 			</OnDragStart>
 			<OnDragStop>
-				this:UnlockHighlight()
+				self:UnlockHighlight()
 				Portable_MinimapButton_DraggingFrame:Hide()
 			</OnDragStop>
 			<OnClick>
