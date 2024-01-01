@@ -734,23 +734,23 @@ local options = {
 					type = "description",
 					name = "\n",
 				},
-				header602 = {
-					order =4,
-					type = "header",
-					name = L["Minimap Button"],
-				},
-				minimapbutton = {
-					order = 5,
-					type = "toggle",
-					name = L["Hide Minimap Button."],
-					desc = L["Hide the Minimap Button for Portable."],
-					width = "double",
-					get = function() return me.db.profile.minimap.hide end,
-					set = function(self, v)
-							me.db.profile.minimap.hide = v
-							me:UpdateUI_MinimapIcon()
-						end,
-				},
+--				header602 = {
+--					order =4,
+--					type = "header",
+--					name = L["Minimap Button"],
+--				},
+--				minimapbutton = {
+--					order = 5,
+--					type = "toggle",
+--					name = L["Hide Minimap Button."],
+--					desc = L["Hide the Minimap Button for Portable."],
+--					width = "double",
+--					get = function() return me.db.profile.minimap.hide end,
+--					set = function(self, v)
+--							me.db.profile.minimap.hide = v
+--							me:UpdateUI_MinimapIcon()
+--						end,
+--				},
 				spacer603 = {
 					order = 6,
 					type = "description",
