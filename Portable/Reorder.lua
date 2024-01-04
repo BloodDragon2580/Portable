@@ -59,7 +59,13 @@ end
 function me:CreateUI_Reorder()
 	local pad = 6
 	
-	me.rui = CreateFrame("Frame", myName.."ReorderUI", UIParent)
+	me.rui = CreateFrame("Frame", myName.."ReorderUI", UIParent, "BackdropTemplate")
+	me.rui:SetBackdrop({
+    bgFile="Interface/FrameGeneral/UI-Background-Marble",
+      edgeFile="Interface/Tooltips/UI-Tooltip-Border",
+      edgeSize = 16,
+      insets = { left = 4, right = 4, top = 4, bottom = 4 }
+})
 	me.rui:Hide()
 	me.rui:EnableMouse(true)
 	me.rui:SetMovable(true)
@@ -72,7 +78,14 @@ function me:CreateUI_Reorder()
 	me.rui:SetScript("OnMouseUp", function(self, button) self:StopMovingOrSizing() end)
 	me.rui:SetScript("OnHide", function(self) self:StopMovingOrSizing() end)
 	me:SetFrameStyle(me.rui)
-	me.rui.container = CreateFrame("Frame", myName.."ReorderUIContainer", me.rui)
+	
+	me.rui.container = CreateFrame("Frame", myName.."ReorderUIContainer", me.rui, "BackdropTemplate")
+	me.rui.container:SetBackdrop({
+    bgFile="Interface/FrameGeneral/UI-Background-Marble",
+      edgeFile="Interface/Tooltips/UI-Tooltip-Border",
+      edgeSize = 16,
+      insets = { left = 4, right = 4, top = 4, bottom = 4 }
+})
 	me.rui.container:SetSize(300 + pad * 2, 300)
 	me.rui.container:SetPoint("TOP", me.rui, "TOP", 0, -32)
 	me:SetFrameStyle(me.rui.container)
@@ -82,7 +95,7 @@ function me:CreateUI_Reorder()
 	me.rui.list = {}
 	for n = 1, me.MAX_BUTTONS do
 		-- List Item Frame
-		me.rui.list[n] = CreateFrame("Frame", myName.."ReorderUIList"..tostring(n), me.rui)
+		me.rui.list[n] = CreateFrame("Frame", myName.."ReorderUIList"..tostring(n), me.rui, "BackdropTemplate")
 		local li = me.rui.list[n]
 		li:SetID(n)
 		li:EnableMouse(true)
