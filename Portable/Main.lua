@@ -40,7 +40,7 @@ local defaults = {
 		
 		-- Button Text
 		textStyle		= 1,			-- 1=Always / 2=OnMouseOver / 3=Never
-		textFont		= "Friz Quadrata TT",	-- Default Game Font
+		textFont		= "Arial Narrow",	-- Default Game Font
 		textSize		= 12,
 		textFlags		= "OUTLINE",
 		textPos			= "BOTTOM",
@@ -385,7 +385,7 @@ function me:CreateUI_Buttons()
 		me.ui[button].text = CreateFrame("Frame", nil, me.ui[button])
 		me.ui[button].text:SetAllPoints(me.ui[button])
 		me.ui[button].text.name = me.ui[button].text:CreateFontString(nil)
-		me.ui[button].text.name:SetFont("Fonts\\FRIZQT__.TTF", 12, "")	-- Default font, we don't want a nil font
+		me.ui[button].text.name:SetFont("Fonts\\ARIALN.TTF", 12, "")	-- Default font, we don't want a nil font
 		me.ui[button].text.name:SetJustifyV("TOP")
 	end
 end
