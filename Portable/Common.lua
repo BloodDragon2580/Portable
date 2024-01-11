@@ -52,7 +52,7 @@ end
 -- Create a simple Text area
 function me:MakeText(frame, name, size, text)
 	frame[name] = frame:CreateFontString(frame:GetName()..name)
-	frame[name]:SetFont("Fonts\\ARHei.ttf", size or 12, "")
+	frame[name]:SetFont("Fonts\\ARIALN.TTF", size or 12, "")
 	frame[name]:SetNonSpaceWrap(true)
 	frame[name]:SetJustifyH("LEFT")
 	frame[name]:SetJustifyV("TOP")

@@ -3,7 +3,7 @@ local L = me.L
 
 
 local itemSize = 18
-
+local textFont = "Arial Narrow"
 
 local itemHeight = 0	-- this is a placeholder, the code will change this value
 local listFaction = ""	-- are we editing the alliance or the horde?
