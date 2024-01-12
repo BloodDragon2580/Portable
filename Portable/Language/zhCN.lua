@@ -31,6 +31,8 @@ L["Valdrakken"] = "瓦德拉肯"
 L["Old Dalaran"] = "远古达拉然"
 
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "左键点击打开主窗口。右键点击打开设置窗口。"
+L["showminimapbutton"] = "show minimap button"
+L["hideminimapbutton"] = "hide minimap button"
 
 LeftMouse = "Left-click to open |cff69CCF0Portable|r"
 RightMouse = "Right click to move the |cff69CCF0Button|r"

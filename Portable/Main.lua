@@ -1259,6 +1259,10 @@ SlashCmdList["PORTABLE"] = function(command)
 			if (not me.ui:IsVisible()) then me.ui:Show() end
 		elseif (command == L["hide"]) then
 			if (me.ui:IsVisible()) then me.ui:Hide() end
+		elseif (command == L["showminimapbutton"]) then
+			if (not Portable_MinimapButton:IsVisible()) then Portable_MinimapButton:Show() end
+		elseif (command == L["hideminimapbutton"]) then
+			if (Portable_MinimapButton:IsVisible()) then Portable_MinimapButton:Hide() end
 		elseif (command == L["toggle"]) then
 			if (me.ui:IsVisible()) then me.ui:Hide() else me.ui:Show() end
 		elseif (command == L["help"]) or (command == L["?"]) then
@@ -1280,6 +1284,8 @@ function me:Slash_Help()
 	me:print(format(L["    |cffff8800%s|r : Show the Portable Configuration UI."], L["config"]))
 	me:print(format(L["    |cffff8800%s|r : Show the Portable UI."], L["show"]))
 	me:print(format(L["    |cffff8800%s|r : Hide the Portable UI."], L["hide"]))
+	me:print(format(L["    |cffff8800%s|r : Show Portable Minimap."], L["showminimapbutton"]))
+	me:print(format(L["    |cffff8800%s|r : Hide Portable Minimap."], L["hideminimapbutton"]))
 	me:print(format(L["    |cffff8800%s|r : Toggle the Portable UI."], L["toggle"]))
 	me:print(format(L["    |cffff8800%s|r : Show the Manage Spell Order UI for %s."], L["sort"], UnitFactionGroup("player")))
 	me:print(format(L["    |cffff8800%s|r : Show usage and command list."], L["help"]))

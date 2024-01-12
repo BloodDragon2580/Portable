@@ -33,6 +33,8 @@ L["Oribos"] = "Oribos"
 
 --Minimap Button
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "Clic gauche pour afficher la fenêtre principale.\nClic droit pour afficher les Options."
+L["showminimapbutton"] = "show minimap button"
+L["hideminimapbutton"] = "hide minimap button"
 
 LeftMouse = "Left-click to open |cff69CCF0Portable|r"
 RightMouse = "Right click to move the |cff69CCF0Button|r"
