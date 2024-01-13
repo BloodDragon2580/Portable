@@ -64,10 +64,10 @@ local defaults = {
 		hearthStone = "hearthstone",			-- Which graphic to provide, a Hearthstone or your Faction Garrison (hearthstone / garrison)
 		hearthText = "hearthstone",					-- What text to display on the button (garrion / hearthstone / both)
 		
---		minimap = {		-- LibDBIcon
---			hide = false,
---			minimapPos = 180,
---		},
+		PortableMiniMapButton = {		-- LibDBIcon
+			hide = false,
+			minimapPos = 180,
+		},
 		--[[ Removed, using LibDBIcon instead
 		enableMinimapButton = true,		-- Show Minimap Button
 		MinimapAngle = 0,					-- Angle around the Minimap to place the Button
