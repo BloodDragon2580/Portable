@@ -364,8 +364,9 @@ function me:CreateUI_Buttons()
 			end)
 		
 		-- The Secure Action Button
-		me.ui[button].sab = CreateFrame("Button", "PortableUIButton"..tostring(n).."SAB", me.ui[button], "SecureActionButtonTemplate")
-		me.ui[button].sab:RegisterForClicks("LeftButtonUp", "RightButtonUp")
+		me.ui[button].sab = CreateFrame("Button", "PortableUIButton"..tostring(n).."SAB", me.ui[button], "InsecureActionButtonTemplate")
+		me.ui[button].sab:RegisterForClicks("LeftButtonDown", "RightButtonDown")
+		me.ui[button].sab:SetAttribute("pressAndHoldAction", "1") -- Ensures the action always fires on Down, regardless of the ActionButtonUseKeyDown cvar
 		me.ui[button].sab:SetScript("OnEnter", function(self, ...)
 				me:DoScript_OnEnter(self, ...)
 			end)
@@ -1168,9 +1169,8 @@ end
 
 -- Show the Configuration
 function me:Helper_ShowConfig()
-	--InterfaceAddOnsList_Update()	-- If the Blizzard Options Frame hasn't been Opened yet, OpenToCategory will fail, so we force a refresh first
-	InterfaceOptionsFrame_OpenToCategory(L["Frame Style  |c00000000Portable"])	-- By selecting a SubCategory first, the Options Tree will be open when we select the main Category
-	InterfaceOptionsFrame_OpenToCategory(myName)	-- Select the main category (which is setup as an About frame)
+	Settings.OpenToCategory(L["Frame Style  |c00000000Portable"])	-- By selecting a SubCategory first, the Options Tree will be open when we select the main Category
+	Settings.OpenToCategory(me:GetAddonInfo("Title"))	-- Select the main category (which is setup as an About frame)
 end
 
 -- Enable/Disable close with ESCape key
