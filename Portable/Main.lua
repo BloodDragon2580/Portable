@@ -190,7 +190,7 @@ function Event:ADDON_LOADED(addonName)
 	me:CreateUI_Broker()
 	
 	-- Info
-	me:print(format(L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."], me:GetAddonInfo("Version"), L["/portable"], L["/portable"], L["help"]))
+	me:print(format(L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."], me:GetAddOnInfo("Version"), L["/portable"], L["/portable"], L["help"]))
 end
 
 --[[
@@ -1170,7 +1170,7 @@ end
 -- Show the Configuration
 function me:Helper_ShowConfig()
 	Settings.OpenToCategory(L["Frame Style  |c00000000Portable"])	-- By selecting a SubCategory first, the Options Tree will be open when we select the main Category
-	Settings.OpenToCategory(me:GetAddonInfo("Title"))	-- Select the main category (which is setup as an About frame)
+	Settings.OpenToCategory(me:GetAddOnInfo("Title"))	-- Select the main category (which is setup as an About frame)
 end
 
 -- Enable/Disable close with ESCape key

@@ -12,8 +12,8 @@ local options = {
 		about = {
 			order = 0,	type = "group",	name = L["About"],
 			args = {
-				aboutdesc3 = {	order = 4,	type = "description",	name  = "\n|cffc0c0c0"..L["Version"].."|cff606060: |cffffff00"..me:GetAddonInfo("Version").."|r\n|cffc0c0c0"..L["Author"].."|cff606060: |cffffff00"..me:GetAddonInfo("Author").."|r\n",	fontSize = "medium",	width = "full",	},
-				aboutdesc4 = {	order = 5,	type = "description",	name = "|cffa0a0a0    "..me:GetAddonInfo("Notes"),	fontSize = "small",	width = "full",	},
+				aboutdesc3 = {	order = 4,	type = "description",	name  = "\n|cffc0c0c0"..L["Version"].."|cff606060: |cffffff00"..me:GetAddOnInfo("Version").."|r\n|cffc0c0c0"..L["Author"].."|cff606060: |cffffff00"..me:GetAddOnInfo("Author").."|r\n",	fontSize = "medium",	width = "full",	},
+				aboutdesc4 = {	order = 5,	type = "description",	name = "|cffa0a0a0    "..me:GetAddOnInfo("Notes"),	fontSize = "small",	width = "full",	},
 				aboutdesc5 = {	order = 6, type = "description", name = "\n\n\n\n|TInterface\\AddOns\\Portable\\Artwork\\PortableLogo.blp:160:160:0:0:512:512:0:256:256:512|t|TInterface\\AddOns\\Portable\\Artwork\\PortableLogo.blp:160:320:0:0:512:512:0:512:0:256|t|TInterface\\AddOns\\Portable\\Artwork\\PortableLogo.blp:160:160:0:0:512:512:256:512:256:512|t", width = "full", },
 			},
 		},
@@ -796,7 +796,7 @@ function me.Options:Initialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable(myName, options)
 	
 	-- Options UI
-	local myTitle = me:GetAddonInfo("Title")
+	local myTitle = me:GetAddOnInfo("Title")
 	local ACD = LibStub("AceConfigDialog-3.0")
 	ACD:AddToBlizOptions(myName, myTitle, nil, "about")	-- This is the Parent category, everything else falls under this
 	ACD:AddToBlizOptions(myName, L["Frame Style  |c00000000Portable"], myTitle, "optframe")

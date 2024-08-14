@@ -21,13 +21,13 @@ end
 
 
 -- Get information from the Add-on .toc file localized if possible.
-function me:GetAddonInfo(key)
+function me:GetAddOnInfo(key)
 	-- Get Localized Value First
-	local value = GetAddOnMetadata(myName, key.."-"..GetLocale())
+	local value = C_AddOns.GetAddOnMetadata(myName, key.."-"..GetLocale())
 	if (value) then return value end
 	
 	-- Default to Non-Localized Value
-	return GetAddOnMetadata(myName, key)
+	return C_AddOns.GetAddOnMetadata(myName, key)
 end
 
 
