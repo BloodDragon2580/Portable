@@ -53,8 +53,8 @@ local defaults = {
 		learnOrder = false,
 		allianceCounter = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
 		hordeCounter =  { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
-		allianceSpellOrder = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 },		-- Default Ordering for Priority
-		hordeSpellOrder =  { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 },		-- Default Ordering for Priority
+		allianceSpellOrder = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 },		-- Default Ordering for Priority
+		hordeSpellOrder =  { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 },		-- Default Ordering for Priority
 		
 		-- Extra Stuff
 		keyEscape = true,	-- Close when ESCAPE is pressed
