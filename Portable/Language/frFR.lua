@@ -29,6 +29,9 @@ L["Hall of the Guardian"] = "Hall des Guardiens"
 L["Boralus"] = "Boralus"
 L["Dazaralor"] = "Dazaralor"
 L["Oribos"] = "Oribos"
+L["Valdrakken"] = "Valdrakken"
+L["Dornogal"] = "Dornogal"
+L["Old Dalaran"] = "Old Dalaran"
 
 
 --Minimap Button

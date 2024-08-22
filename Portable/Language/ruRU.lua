@@ -29,6 +29,9 @@ L["Tol Barad"] = "Тол Барад"
 L["Undercity"] = "Подгород"
 L["Vale of Eternal Blossoms"] = "Вечноцветущий дол"
 L["Warspear"] = "Копье войны"
+L["Valdrakken"] = "Valdrakken"
+L["Dornogal"] = "Dornogal"
+L["Old Dalaran"] = "Old Dalaran"
 
 --Minimap Button
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "Left-Click to Toggle Main Frame.\nRight-Click for Options."

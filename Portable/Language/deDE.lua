@@ -33,6 +33,7 @@ L["Undercity"] = "Unterstadt"
 L["Vale of Eternal Blossoms"] = "Tal der Ewigen Blüten"
 L["Warspear"] = "Kriegsspeer"
 L["Valdrakken"] = "Valdrakken"
+L["Dornogal"] = "Dornogal"
 L["Old Dalaran"] = "Alt Dalaran"
 
 --Minimap Button
