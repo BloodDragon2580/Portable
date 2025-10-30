@@ -2,31 +2,12 @@
 ## Title: |cffd6266cPortable|r
 ## Notes: Quick Access Fancy Button Frame for Mage Portal and Teleport Spells. (A big Thx at nancikennedy for the nice help.)
 ## Author: BloddDragon2580
-## Version: 18.6
+## Version: 18.7
 ## SavedVariables: PortableDB
 ## OptionalDeps: LibStub, CallbackHandler-1.0, LibSharedMedia-3.0, AceGUI-3.0, AceGUI-3.0-SharedMediaWidgets, AceDB-3.0, AceDBOptions-3.0, AceConfig-3.0, AceConsole-3.0
 ## IconTexture: Interface\AddOns\Portable\Media\Texture\logo
 
-# Libraries
-Library\LibStub\LibStub.lua
-Library\CallbackHandler-1.0\CallbackHandler-1.0.xml
-Library\AceDB-3.0\AceDB-3.0.xml
-Library\AceDBOptions-3.0\AceDBOptions-3.0.xml
-Library\AceConsole-3.0\AceConsole-3.0.xml
-Library\AceGUI-3.0\AceGUI-3.0.xml
-Library\AceConfig-3.0\AceConfig-3.0.xml
-Library\AceAddon-3.0\AceAddon-3.0.xml
-Library\AceEvent-3.0\AceEvent-3.0.xml
-Library\AceHook-3.0\AceHook-3.0.xml
-Library\AceLocale-3.0\AceLocale-3.0.xml
-Library\AceTimer-3.0\AceTimer-3.0.xml
-
-Library\LibSharedMedia-3.0\lib.xml
-Library\AceGUI-3.0-SharedMediaWidgets\widget.xml
-
-Library\LibDataBroker-1.1\LibDataBroker-1.1.lua
-Library\LibDBIcon-1.0\LibDBIcon-1.0.lua
-
+embeds.xml
 
 # Language
 Language\Default.lua
@@ -40,9 +21,6 @@ Language\ruRU.lua
 Common.lua
 Reorder.lua
 Broker.lua
-
-minimap/PortableMiniMapButton.lua
-minimap/PortableMiniMapButton.xml
 
 Main.lua
 Options.lua

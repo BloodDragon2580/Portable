@@ -9,7 +9,7 @@ me.brokerFeed = me.LDB:NewDataObject(myName, { type = "data source", text = "" }
 
 -- Default Data
 me.brokerFeed.text = L["Portable"]
-me.brokerFeed.icon = "Interface\\Icons\\spell_arcane_portaldalaran"
+me.brokerFeed.icon = "Interface\\Icons\\spell_arcane_portaloribos"
 
 -- There has to be a better way to handle the hearthstone, but for now, this works
 local HEARTHSTONEID = 8690			-- Spell ID used to identify hearthstone special button
@@ -230,5 +230,46 @@ function me:HideUI_Broker()
 	me.broker:Hide()
 end
 
+-- === Minimap-Icon (LibDBIcon) - Mage only ===================================
+function me:UpdateMinimapVisibility()
+  local LDI = LibStub("LibDBIcon-1.0", true)
+  if not LDI then return end
 
+  local _, class = UnitClass("player")
+  -- Nur Magier sollen das Icon sehen
+  if class ~= "MAGE" then
+    LDI:Hide(myName)
+    return
+  end
+
+  -- Toggle anhand deiner DB (hide = true -> verstecken)
+  if me.db and me.db.profile and me.db.profile.PortableMiniMapButton
+     and me.db.profile.PortableMiniMapButton.hide then
+    LDI:Hide(myName)
+  else
+    LDI:Show(myName)
+  end
+end
+
+function me:Minimap_Register()
+  local LDI = LibStub("LibDBIcon-1.0", true)
+  if not LDI or not me.brokerFeed then return end
+
+  -- Falls dein LDB-Objekt noch kein Icon gesetzt hat:
+  me.brokerFeed.icon = "Interface\\Icons\\spell_arcane_portaloribos"
+
+  -- Fallback-Defaults
+  me.db.profile.PortableMiniMapButton = me.db.profile.PortableMiniMapButton or {
+    hide = false,
+    minimapPos = 180,
+  }
+
+  -- LibDBIcon an dein LDB-Object hängen
+  if not LDI:IsRegistered(myName) then
+    LDI:Register(myName, me.brokerFeed, me.db.profile.PortableMiniMapButton)
+  end
+
+  -- Sichtbarkeit anhand Klasse + Toggle
+  me:UpdateMinimapVisibility()
+end
 

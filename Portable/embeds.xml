@@ -1,0 +1,28 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+  <!-- Core Libraries -->
+  <Script file="Library\LibStub\LibStub.lua"/>
+  <Include file="Library\CallbackHandler-1.0\CallbackHandler-1.0.xml"/>
+
+  <!-- Ace3 Framework -->
+  <Include file="Library\AceAddon-3.0\AceAddon-3.0.xml"/>
+  <Include file="Library\AceEvent-3.0\AceEvent-3.0.xml"/>
+  <Include file="Library\AceHook-3.0\AceHook-3.0.xml"/>
+  <Include file="Library\AceLocale-3.0\AceLocale-3.0.xml"/>
+  <Include file="Library\AceDB-3.0\AceDB-3.0.xml"/>
+  <Include file="Library\AceDBOptions-3.0\AceDBOptions-3.0.xml"/>
+  <Include file="Library\AceConsole-3.0\AceConsole-3.0.xml"/>
+  <Include file="Library\AceGUI-3.0\AceGUI-3.0.xml"/>
+  <Include file="Library\AceConfig-3.0\AceConfig-3.0.xml"/>
+  <Include file="Library\AceTimer-3.0\AceTimer-3.0.xml"/>
+
+  <!-- Shared Media -->
+  <Include file="Library\LibSharedMedia-3.0\lib.xml"/>
+  <Include file="Library\AceGUI-3.0-SharedMediaWidgets\widget.xml"/>
+
+  <!-- Broker / Minimap -->
+  <Script file="Library\LibDataBroker-1.1\LibDataBroker-1.1.lua"/>
+  <Script file="Library\LibDBIcon-1.0\LibDBIcon-1.0.lua"/>
+
+</Ui>

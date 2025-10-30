@@ -180,17 +180,13 @@ function Event:ADDON_LOADED(addonName)
 	
 	-- Update any appearance options used by the Add-on
 	me:UpdateOptions()
-	
-	-- Minimap Button
-	--me:CreateUI_MinimapIcon()
-	--[[ Removed, using LibDBIcon instead
-	me:MinimapButton_Create("Interface\\Icons\\spell_arcane_portaldalaran", L["Portable "], L["Left-Click to Toggle Main Frame.\nRight-Click for Options."])
-	if (not me.db.profile.enableMinimapButton) then me:MinimapButton_Hide() end
-	]]--
-	
+
 	-- Data Broker
 	me:CreateUI_Broker()
-	
+
+	-- Minimap-Icon für Magier registrieren/anzeigen
+	me:Minimap_Register()
+
 	-- Info
 	me:print(format(L["Version |cffffff00%s |cff00ff00Loaded|r.  Use |cffffff00%s|r to Toggle UI |cffa0a0a0(or use a Key Binding)|r, |cffffff00%s %s|r for Command List."], me:GetAddOnInfo("Version"), L["/portable"], L["/portable"], L["help"]))
 end
@@ -368,7 +364,7 @@ function me:CreateUI_Buttons()
 		-- The Secure Action Button
 		me.ui[button].sab = CreateFrame("Button", "PortableUIButton"..tostring(n).."SAB", me.ui[button], "InsecureActionButtonTemplate")
 		me.ui[button].sab:RegisterForClicks("LeftButtonDown", "RightButtonDown")
-		me.ui[button].sab:SetAttribute("pressAndHoldAction", "1") -- Ensures the action always fires on Down, regardless of the ActionButtonUseKeyDown cvar
+		me.ui[button].sab:SetAttribute("pressAndHoldAction", "1")
 		me.ui[button].sab:SetScript("OnEnter", function(self, ...)
 				me:DoScript_OnEnter(self, ...)
 			end)

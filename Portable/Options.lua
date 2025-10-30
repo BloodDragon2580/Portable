@@ -734,21 +734,27 @@ local options = {
 					name = "\n",
 				},
 				header602 = {
-					order =4,
-					type = "header",
-					name = L["Minimap Button"],
+					order = 4, type = "header", name = L["Minimap Button"],
 				},
 				minimapbutton = {
 					order = 5,
 					type = "toggle",
-					name = L["Hide Minimap Button."],
-					desc = L["Hide the Minimap Button for Portable."],
+					name = L["Show Minimap Icon (Mage only)"],
+					desc = L["Shows the Portable minimap icon. Only visible for Mages."],
 					width = "double",
-					get = function() return me.db.profile.PortableMiniMapButton.hide end,
-					set = function(self, v)
-							me.db.profile.PortableMiniMapButton.hide = v
-							Portable_MinimapButton:Hide()
-						end,
+					  get = function()
+						-- UI zeigt „Show“ -> intern ist „hide“ invertiert
+						return not (me.db.profile.PortableMiniMapButton and me.db.profile.PortableMiniMapButton.hide)
+					  end,
+					set = function(_, v)
+						me.db.profile.PortableMiniMapButton = me.db.profile.PortableMiniMapButton or {}
+						me.db.profile.PortableMiniMapButton.hide = not v
+						me:UpdateMinimapVisibility()
+					end,
+					disabled = function()
+						local _, class = UnitClass("player")
+						return class ~= "MAGE"
+					end,
 				},
 				spacer603 = {
 					order = 6,

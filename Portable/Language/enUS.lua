@@ -26,7 +26,5 @@ local L = me.L
 ]]--
 
 L[myName] = "|cff0088ffPortable|cff808080: |r"	-- Provide a "friendly name" of our AddOn to prefix any output messages.
-
-
-
-
+L["Show Minimap Icon (Mage only)"] = "Show Minimap Icon (Mage only)"
+L["Shows the Portable minimap icon. Only visible for Mages."] = "Shows the Portable minimap icon. Only visible for Mages."

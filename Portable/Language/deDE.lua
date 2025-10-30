@@ -38,8 +38,8 @@ L["Old Dalaran"] = "Alt Dalaran"
 
 --Minimap Button
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options.\n"] = "|cff00ff00Links Klick|r zum Öffnen des Frames.\n|cff00ff00Rechts Klick|r für Optionen"
-L["showminimapbutton"] = "show minimap button"
-L["hideminimapbutton"] = "hide minimap button"
+L["Show Minimap Icon (Mage only)"] = "Zeige Minimap-Symbol (nur Magier)"
+L["Shows the Portable minimap icon. Only visible for Mages."] = "Zeigt das Portable-Minimap-Symbol an. Nur für Magier sichtbar."
 
 LeftMouse = "Linksklick um |cff69CCF0Portable|r zu öffnen"
 RightMouse = "Rechtsklick um den |cff69CCF0Button|r zu verschieben"

@@ -33,8 +33,8 @@ L["Dornogal"] = "多恩诺嘉尔"
 L["Old Dalaran"] = "远古达拉然"
 
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "左键点击打开主窗口。\n右键点击打开设置窗口。"
-L["showminimapbutton"] = "show minimap button"
-L["hideminimapbutton"] = "hide minimap button"
+L["Show Minimap Icon (Mage only)"] = "显示小地图图标（仅限法师）"
+L["Shows the Portable minimap icon. Only visible for Mages."] = "显示 Portable 的小地图图标，仅法师可见。"
 
 LeftMouse = "左键打开|cff69CCF0Portable|r"
 RightMouse = "右键移动|cff69CCF0按钮|r"
