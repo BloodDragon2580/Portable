@@ -95,6 +95,23 @@ local function TryRegister()
             PortablePins:UpdateAllPinSizes()
         end
     end)
+	
+    -- =========================
+    -- Show / Hide Map Pins Checkbox
+    -- =========================
+    local checkbox = CreateFrame("CheckButton", nil, panel, "InterfaceOptionsCheckButtonTemplate")
+    checkbox:SetPoint("TOPLEFT", slider, "BOTTOMLEFT", 0, -25)
+
+    checkbox.Text:SetText(L["Show Map Pins"])
+    checkbox:SetChecked(PortablePinsDB.showPortals)
+
+    checkbox:SetScript("OnClick", function(self)
+        PortablePinsDB.showPortals = self:GetChecked()
+
+        if PortablePins.Provider then
+            PortablePins.Provider:RefreshAllData()
+        end
+    end)
 
     if Settings and Settings.RegisterCanvasLayoutCategory then
         local category = Settings.RegisterCanvasLayoutCategory(panel, panel.name)
