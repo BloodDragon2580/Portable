@@ -2,7 +2,7 @@
 local myName, me = ...
 local L = me.L
 
-L[myName] = "|cff0088ffPortable|cff808080: |r"
+L[myName] = "|cffd6266cPortable|cff808080: |r"
 
 L["ActionButtonUseKeyDown"] = "Use \n\n|cffFF3F40/console ActionButtonUseKeyDown 0|r\n\n in chat to make portable work."
 
@@ -31,6 +31,8 @@ L["Oribos"] = "奥利波斯"
 L["Valdrakken"] = "瓦德拉肯"
 L["Dornogal"] = "多恩诺嘉尔"
 L["Old Dalaran"] = "远古达拉然"
+L["Broken Isles"] = "破碎群岛"
+L["Hall of Guardian"] = "守护者圣殿"
 
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "左键点击打开主窗口。\n右键点击打开设置窗口。"
 L["Show Minimap Icon (Mage only)"] = "显示小地图图标（仅限法师）"
@@ -234,3 +236,9 @@ L["Apply"] = "刷新"
 L["Cancel"] = "取消"
 L["Drag and Drop a List Item to Reorder the Spells."] = "拖曳重新排序"
 
+L["PortablePins"] = "|cffd6266c地图传送门|r"
+L["Mage Portals"] = "法师传送门"
+L["Map Pin Size"] = "地图图标大小"
+L["Left-Click: %s"] = "左键：%s"
+L["Right-Click: %s"] = "右键：%s"
+L["Adjust the size of the portal icons on the World Map."] = "调整世界地图上传送门图标的大小。"

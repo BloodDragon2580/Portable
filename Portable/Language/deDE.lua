@@ -3,7 +3,7 @@ local myName, me = ...
 local L = me.L
 
 
-L[myName] = "|cff0088ffPortable|cff808080: |r"
+L[myName] = "|cffd6266cPortable|cff808080: |r"
 
 L["Portable"] = "Portable"
 L["ActionButtonUseKeyDown"] = "Benutze \n\n|cffFF3F40/console ActionButtonUseKeyDown 0|r\n\nim chat damit Portable funktioniert."
@@ -35,6 +35,8 @@ L["Warspear"] = "Kriegsspeer"
 L["Valdrakken"] = "Valdrakken"
 L["Dornogal"] = "Dornogal"
 L["Old Dalaran"] = "Alt Dalaran"
+L["Broken Isles"] = "Verheerte Inseln"
+L["Hall of Guardian"] = "Halle des Wächters"
 
 --Minimap Button
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options.\n"] = "|cff00ff00Links Klick|r zum Öffnen des Frames.\n|cff00ff00Rechts Klick|r für Optionen"
@@ -143,3 +145,11 @@ L["THICKOUTLINE"] = "THICKOUTLINE"
 
 
 L["Drag and Drop a List Item to Reorder the Spells."] = "Ziehe ein Teleport per Drag-and-Drop hoch und runter, um die Zauber neu anzuordnen."
+
+--MapPins
+L["PortablePins"] = "|cffd6266cPortablePins|r"
+L["Mage Portals"] = "Magier Portale"
+L["Map Pin Size"] = "Map-Pin Größe"
+L["Left-Click: %s"] = "Links-Klick: %s"
+L["Right-Click: %s"] = "Rechts-Klick: %s"
+L["Adjust the size of the portal icons on the World Map."] = "Passt die Größe der Portal-Symbole auf der Weltkarte an."

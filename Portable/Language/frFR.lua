@@ -4,7 +4,7 @@ local L = me.L
 
 L["ActionButtonUseKeyDown"] = "Use \n\n|cffFF3F40/console ActionButtonUseKeyDown 0|r\n\n in chat to make portable work."
 
-L[myName] = "|cff0088ffPortable|cff808080: |r"
+L[myName] = "|cffd6266cPortable|cff808080: |r"
 
 --Portal/Teleport Names
 L["Stormwind"] = "Hurlevent"
@@ -32,7 +32,8 @@ L["Oribos"] = "Oribos"
 L["Valdrakken"] = "Valdrakken"
 L["Dornogal"] = "Dornogal"
 L["Old Dalaran"] = "Old Dalaran"
-
+L["Broken Isles"] = "Les Îles Brisées"
+L["Hall of Guardian"] = "Hall des Guardiens"
 
 --Minimap Button
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "Clic gauche pour afficher la fenêtre principale.\nClic droit pour afficher les Options."
@@ -144,3 +145,10 @@ L["THICKOUTLINE"] = "Contour épais"
 L["Text Behaviour"] = "Comportement du texte"
 L["Text Color"] = "Couleur du texte"
 L["Text Style"] = "Style du texte"
+
+L["PortablePins"] = "|cffd6266cPortails de carte|r"
+L["Mage Portals"] = "Portails de mage"
+L["Map Pin Size"] = "Taille des marqueurs"
+L["Left-Click: %s"] = "Clic gauche : %s"
+L["Right-Click: %s"] = "Clic droit : %s"
+L["Adjust the size of the portal icons on the World Map."] = "Ajuste la taille des icônes de portails sur la carte du monde."

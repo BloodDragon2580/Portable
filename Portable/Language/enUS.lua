@@ -25,6 +25,13 @@ local L = me.L
 		replaced with; This is a long string of characters.
 ]]--
 
-L[myName] = "|cff0088ffPortable|cff808080: |r"	-- Provide a "friendly name" of our AddOn to prefix any output messages.
+L[myName] = "|cffd6266cPortable|cff808080: |r"	-- Provide a "friendly name" of our AddOn to prefix any output messages.
 L["Show Minimap Icon (Mage only)"] = "Show Minimap Icon (Mage only)"
 L["Shows the Portable minimap icon. Only visible for Mages."] = "Shows the Portable minimap icon. Only visible for Mages."
+
+L["PortablePins"] = "|cffd6266cPortablePins|r"
+L["Mage Portals"] = "Mage Portals"
+L["Map Pin Size"] = "Map Pin Size"
+L["Left-Click: %s"] = "Left-Click: %s"
+L["Right-Click: %s"] = "Right-Click: %s"
+L["Adjust the size of the portal icons on the World Map."] = "Adjust the size of the portal icons on the World Map."

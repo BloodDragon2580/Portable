@@ -4,7 +4,7 @@ local L = me.L
 
 L["ActionButtonUseKeyDown"] = "Use \n\n|cffFF3F40/console ActionButtonUseKeyDown 0|r\n\n in chat to make portable work."
 
-L[myName] = "|cff0088ffPortable|cff808080: |r"
+L[myName] = "|cffd6266cPortable|cff808080: |r"
 
 --Portal/Teleport Names
 L["Dalaran - Broken Isles"] = "Даларан - Расколотые острова"
@@ -32,6 +32,8 @@ L["Warspear"] = "Копье войны"
 L["Valdrakken"] = "Valdrakken"
 L["Dornogal"] = "Dornogal"
 L["Old Dalaran"] = "Old Dalaran"
+L["Broken Isles"] = "Расколотые острова"
+L["Hall of Guardian"] = "Оплот Хранителя"
 
 --Minimap Button
 L["Left-Click to Toggle Main Frame.\nRight-Click for Options."] = "Left-Click to Toggle Main Frame.\nRight-Click for Options."
@@ -135,3 +137,10 @@ L["Text Behaviour"] = "Отображение текста"
 L["Text Color"] = "Цвет текста"
 L["Text Style"] = "Стиль текста"
 L["THICKOUTLINE"] = "Тонкий контур"
+
+L["PortablePins"] = "|cffd6266cПорталы на карте|r"
+L["Mage Portals"] = "Порталы мага"
+L["Map Pin Size"] = "Размер значков на карте"
+L["Left-Click: %s"] = "ЛКМ: %s"
+L["Right-Click: %s"] = "ПКМ: %s"
+L["Adjust the size of the portal icons on the World Map."] = "Изменяет размер значков порталов на карте мира."
