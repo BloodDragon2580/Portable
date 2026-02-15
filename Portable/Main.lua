@@ -1167,8 +1167,27 @@ end
 
 -- Show the Configuration
 function me:Helper_ShowConfig()
-	Settings.OpenToCategory(L["Frame Style  |c00000000Portable"])	-- By selecting a SubCategory first, the Options Tree will be open when we select the main Category
-	Settings.OpenToCategory(me:GetAddOnInfo("Title"))	-- Select the main category (which is setup as an About frame)
+	-- Dragonflight+ Settings API expects a numeric categoryID (or category object).
+	-- Our option panels are registered via AceConfigDialog:AddToBlizOptions, and we
+	-- store the returned IDs in me.Options.categoryIDs (see Options.lua).
+	local ids = me.Options and me.Options.categoryIDs
+	local subID = ids and ids.frame
+	local mainID = ids and ids.main
+
+	-- By selecting a sub-category first, the Options Tree will be open when we select the main category.
+	if subID then
+		Settings.OpenToCategory(subID)
+	else
+		-- Fallback: try opening by addon title (works on some clients / older API)
+		Settings.OpenToCategory(me:GetAddOnInfo("Title"))
+	end
+
+	-- Select the main category (which is setup as an About frame)
+	if mainID then
+		Settings.OpenToCategory(mainID)
+	else
+		Settings.OpenToCategory(me:GetAddOnInfo("Title"))
+	end
 end
 
 -- Enable/Disable close with ESCape key

@@ -804,14 +804,28 @@ function me.Options:Initialize()
 	-- Options UI
 	local myTitle = me:GetAddOnInfo("Title")
 	local ACD = LibStub("AceConfigDialog-3.0")
-	ACD:AddToBlizOptions(myName, myTitle, nil, "about")	-- This is the Parent category, everything else falls under this
-	ACD:AddToBlizOptions(myName, L["Frame Style  |c00000000Portable"], myTitle, "optframe")
-	ACD:AddToBlizOptions(myName, L["Button Icons  |c00000000Portable"], myTitle, "opticon")
-	ACD:AddToBlizOptions(myName, L["Text Font  |c00000000Portable"], myTitle, "opttext")
-	ACD:AddToBlizOptions(myName, L["Spell Order  |c00000000Portable"], myTitle, "optspells")
-	ACD:AddToBlizOptions(myName, L["Hearthstone  |c00000000Portable"], myTitle, "opthearthstone")
-	ACD:AddToBlizOptions(myName, L["Extra Stuff  |c00000000Portable"], myTitle, "optextras")
-	ACD:AddToBlizOptions(myName, L["Profiles  |c00000000Portable"], myTitle, "profile")	-- Adds a Profiles sub-category
+
+	-- NOTE: Since the Dragonflight settings API expects a numeric/int categoryID,
+	-- we store the returned IDs here so other parts of the addon can safely open
+	-- the correct settings panels (without passing the category *name* string).
+	me.Options.categoryIDs = me.Options.categoryIDs or {}
+	local _, mainID = ACD:AddToBlizOptions(myName, myTitle, nil, "about")	-- Parent category
+	local _, frameID = ACD:AddToBlizOptions(myName, L["Frame Style  |c00000000Portable"], myTitle, "optframe")
+	local _, iconID = ACD:AddToBlizOptions(myName, L["Button Icons  |c00000000Portable"], myTitle, "opticon")
+	local _, textID = ACD:AddToBlizOptions(myName, L["Text Font  |c00000000Portable"], myTitle, "opttext")
+	local _, spellsID = ACD:AddToBlizOptions(myName, L["Spell Order  |c00000000Portable"], myTitle, "optspells")
+	local _, hearthID = ACD:AddToBlizOptions(myName, L["Hearthstone  |c00000000Portable"], myTitle, "opthearthstone")
+	local _, extrasID = ACD:AddToBlizOptions(myName, L["Extra Stuff  |c00000000Portable"], myTitle, "optextras")
+	local _, profilesID = ACD:AddToBlizOptions(myName, L["Profiles  |c00000000Portable"], myTitle, "profile")	-- Profiles sub-category
+
+	me.Options.categoryIDs.main = mainID
+	me.Options.categoryIDs.frame = frameID
+	me.Options.categoryIDs.icon = iconID
+	me.Options.categoryIDs.text = textID
+	me.Options.categoryIDs.spells = spellsID
+	me.Options.categoryIDs.hearthstone = hearthID
+	me.Options.categoryIDs.extras = extrasID
+	me.Options.categoryIDs.profiles = profilesID
 
 end
 
