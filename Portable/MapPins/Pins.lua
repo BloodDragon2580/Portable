@@ -155,20 +155,28 @@ function PortablePins.PinMixin:OnMouseEnter()
     local teleportName = GetSpellName(self.data.teleport)
     local portalName = GetSpellName(self.data.portal)
 
+    -- IMPORTANT:
+    -- Do NOT use macrotext with "/run WorldMapFrame:Hide()" here.
+    -- That pattern can leave the UI in a stuck modal state after an interrupted cast,
+    -- which breaks ESC until /reload.
+    -- Instead we use pure secure "spell" actions and simply hide our clicker/tooltip.
+
     if teleportName and IsSpellKnown(self.data.teleport) then
-        SecureClicker:SetAttribute("type1", "macro")
-        SecureClicker:SetAttribute("macrotext1", "/cast " .. teleportName .. "\n/run WorldMapFrame:Hide()")
+        SecureClicker:SetAttribute("type1", "spell")
+        SecureClicker:SetAttribute("spell1", teleportName)
+        SecureClicker:SetAttribute("unit", "player")
     else
         SecureClicker:SetAttribute("type1", nil)
-        SecureClicker:SetAttribute("macrotext1", nil)
+        SecureClicker:SetAttribute("spell1", nil)
     end
 
     if portalName and IsSpellKnown(self.data.portal) then
-        SecureClicker:SetAttribute("type2", "macro")
-        SecureClicker:SetAttribute("macrotext2", "/cast " .. portalName .. "\n/run WorldMapFrame:Hide()")
+        SecureClicker:SetAttribute("type2", "spell")
+        SecureClicker:SetAttribute("spell2", portalName)
+        SecureClicker:SetAttribute("unit", "player")
     else
         SecureClicker:SetAttribute("type2", nil)
-        SecureClicker:SetAttribute("macrotext2", nil)
+        SecureClicker:SetAttribute("spell2", nil)
     end
 
     SecureClicker.data = self.data
@@ -189,6 +197,46 @@ SecureClicker:SetScript("OnLeave", function(self)
     PortablePins.hoverPin = nil
     GameTooltip_Hide()
 end)
+
+-- Hide the helper clicker after a click so it can't keep interacting with input.
+SecureClicker:SetScript("PostClick", function(self)
+    GameTooltip_Hide()
+    self:Hide()
+    PortablePins.hoverPin = nil
+end)
+
+-- Defensive cleanup: interrupted casts (e.g. by movement) can leave cursor/targeting in a bad state.
+local cleanupFrame = CreateFrame("Frame")
+cleanupFrame:RegisterEvent("UNIT_SPELLCAST_INTERRUPTED")
+cleanupFrame:RegisterEvent("UNIT_SPELLCAST_FAILED")
+cleanupFrame:RegisterEvent("UNIT_SPELLCAST_FAILED_QUIET")
+cleanupFrame:RegisterEvent("UNIT_SPELLCAST_STOP")
+cleanupFrame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
+cleanupFrame:SetScript("OnEvent", function(_, _, unit)
+    if unit ~= "player" then return end
+    if SpellIsTargeting and SpellIsTargeting() then
+        SpellStopTargeting()
+    end
+    if CursorHasSpell and CursorHasSpell() then
+        ClearCursor()
+    end
+    if GetCurrentKeyBoardFocus and GetCurrentKeyBoardFocus() then
+        local f = GetCurrentKeyBoardFocus()
+        if f and f.ClearFocus then f:ClearFocus() end
+    end
+end)
+
+-- Also cleanup when the map closes.
+if WorldMapFrame then
+    WorldMapFrame:HookScript("OnHide", function()
+        if SpellIsTargeting and SpellIsTargeting() then
+            SpellStopTargeting()
+        end
+        if CursorHasSpell and CursorHasSpell() then
+            ClearCursor()
+        end
+    end)
+end
 
 SecureClicker:SetScript("OnEnter", function(self)
     if self.tooltipFunc then
