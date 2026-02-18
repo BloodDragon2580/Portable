@@ -214,11 +214,11 @@ cleanupFrame:RegisterEvent("UNIT_SPELLCAST_STOP")
 cleanupFrame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
 cleanupFrame:SetScript("OnEvent", function(_, _, unit)
     if unit ~= "player" then return end
-    if SpellIsTargeting and SpellIsTargeting() then
-        SpellStopTargeting()
-    end
-    if CursorHasSpell and CursorHasSpell() then
-        ClearCursor()
+    -- SpellStopTargeting() is a protected function and can raise
+    -- ADDON_ACTION_FORBIDDEN (taint) when the player cancels targeting via ESC.
+    -- ClearCursor() is safe and also clears spell-targeting state.
+    if (SpellIsTargeting and SpellIsTargeting()) or (CursorHasSpell and CursorHasSpell()) then
+        if ClearCursor then ClearCursor() end
     end
     if GetCurrentKeyBoardFocus and GetCurrentKeyBoardFocus() then
         local f = GetCurrentKeyBoardFocus()
@@ -229,11 +229,9 @@ end)
 -- Also cleanup when the map closes.
 if WorldMapFrame then
     WorldMapFrame:HookScript("OnHide", function()
-        if SpellIsTargeting and SpellIsTargeting() then
-            SpellStopTargeting()
-        end
-        if CursorHasSpell and CursorHasSpell() then
-            ClearCursor()
+        -- Same rationale as above: avoid protected SpellStopTargeting().
+        if (SpellIsTargeting and SpellIsTargeting()) or (CursorHasSpell and CursorHasSpell()) then
+            if ClearCursor then ClearCursor() end
         end
     end)
 end

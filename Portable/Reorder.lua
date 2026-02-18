@@ -8,7 +8,27 @@ local textFont = "Arial Narrow"
 local itemHeight = 0	-- this is a placeholder, the code will change this value
 local listFaction = ""	-- are we editing the alliance or the horde?
 local order = {}		-- holds the list order we are editing
-local spells = nil		-- Pointer to the aSpell or hSpell table depending if order alliance or horde spell order
+local spells = nil
+
+local draggingIndex = nil	-- which list row is currently being dragged
+local hoverIndex = nil		-- which row we are hovering while dragging
+
+
+local function SetRowBorder(row, r, g, b, a)
+	-- Use an inner border frame so the highlight isn't clipped by the ScrollFrame.
+	if row and row.dragBorder then
+		row.dragBorder:SetBackdropBorderColor(r, g, b, a)
+		if a and a > 0 then row.dragBorder:Show() else row.dragBorder:Hide() end
+	elseif row and row.SetBackdropBorderColor then
+		-- no-op: row itself has no border
+		if a and a > 0 then
+			row:SetBackdropBorderColor(r, g, b, a)
+		else
+			row:SetBackdropBorderColor(0, 0, 0, 0)
+		end
+	end
+end
+		-- Pointer to the aSpell or hSpell table depending if order alliance or horde spell order
 
 function me:ShowReorderUI(mode)
 	if (me.rui) and (me.rui:IsVisible()) then return end	-- Don't start if we're already running
@@ -93,12 +113,15 @@ function me:CreateUI_Reorder()
 	me.rui.scrollFrame:SetPoint("TOPLEFT", me.rui.container, "TOPLEFT", pad, -pad)
 	me.rui.scrollFrame:SetPoint("BOTTOMRIGHT", me.rui.container, "BOTTOMRIGHT", -(pad + sbw + 2), pad)
 
-	-- Put scrollbar INSIDE the container and keep it off the buttons
+	-- Put scrollbar INSIDE the container.
+	-- NOTE: UIPanelScrollFrameTemplate scrollbar includes up/down buttons, so
+	-- we need extra top/bottom inset, otherwise it will look "too high/too low".
 	local sb = _G[me.rui.scrollFrame:GetName().."ScrollBar"]
 	if sb then
 		sb:ClearAllPoints()
-		sb:SetPoint("TOPRIGHT", me.rui.container, "TOPRIGHT", -pad, -pad)
-		sb:SetPoint("BOTTOMRIGHT", me.rui.container, "BOTTOMRIGHT", -pad, pad)
+		local btnInset = 18 -- roughly the height of the scroll up/down buttons
+		sb:SetPoint("TOPRIGHT", me.rui.container, "TOPRIGHT", -(pad + 4), -(pad + btnInset))
+		sb:SetPoint("BOTTOMRIGHT", me.rui.container, "BOTTOMRIGHT", -(pad + 4), (pad + btnInset))
 	end
 
 	-- Scroll child (content)
@@ -122,42 +145,111 @@ function me:CreateUI_Reorder()
 		if new > maxScroll then new = maxScroll end
 		self:SetVerticalScroll(new)
 	end)
+-- List rows (fixed-position buttons; "drag" without moving frames to avoid buggy StartMoving taint/overlaps)
+me.rui.list = {}
+for n = 1, me.MAX_BUTTONS do
+	local li = CreateFrame("Button", myName.."ReorderUIList"..tostring(n), me.rui.scrollChild, "BackdropTemplate")
+	me.rui.list[n] = li
+	li:SetID(n)
+	li:EnableMouse(true)
+	li:RegisterForClicks("LeftButtonDown", "LeftButtonUp")
+	li:SetSize(300, 34)
 
-	-- List rows
-	local n
-	me.rui.list = {}
-	for n = 1, me.MAX_BUTTONS do
-		me.rui.list[n] = CreateFrame("Frame", myName.."ReorderUIList"..tostring(n), me.rui.scrollChild, "BackdropTemplate")
-		local li = me.rui.list[n]
-		li:SetID(n)
-		li:EnableMouse(true)
-		li:SetMovable(true)
-		li:SetUserPlaced(false)
-		li:SetSize(300, 40)
+	-- Style: rows should NOT have a default border (we draw our own drag/hover border)
+	li:SetBackdrop({ bgFile = "Interface\\ChatFrame\\ChatFrameBackground" })
+	li:SetBackdropColor(0, 0, 0, 0.10)
 
-		-- List Item Text
-		me:MakeText(li, "text", itemSize)
-		li.text:SetFont("Fonts\ARIALN.TTF", 16, "")
-		li.text:SetJustifyV("MIDDLE")
-		li.text:SetJustifyH("CENTER")
-		li.text:SetPoint("TOPLEFT", li, "TOPLEFT", 2, -2)
-		li.text:SetPoint("BOTTOMRIGHT", li, "BOTTOMRIGHT", -2, 2)
-		li:SetHeight(li.text:GetStringHeight() + 16)
+	-- Inner highlight border (drawn inside the row so it won't be clipped)
+	li.dragBorder = CreateFrame("Frame", nil, li, "BackdropTemplate")
+	li.dragBorder:SetPoint("TOPLEFT", li, "TOPLEFT", 1, -1)
+	li.dragBorder:SetPoint("BOTTOMRIGHT", li, "BOTTOMRIGHT", -1, 1)
+	li.dragBorder:SetBackdrop({ edgeFile = "Interface\\Buttons\\WHITE8X8", edgeSize = 1 })
+	li.dragBorder:Hide()
+	-- Make sure the base row has no visible border.
+	if li.SetBackdropBorderColor then li:SetBackdropBorderColor(0, 0, 0, 0) end
 
-		-- Handlers
-		li:SetScript("OnMouseDown", function(self, button)
-			self:StartMoving()
-			self:SetUserPlaced(false)
-			self.level = self:GetFrameLevel()
-			self:SetFrameLevel(100)
-		end)
-		li:SetScript("OnMouseUp", function(self, button)
-			self:StopMovingOrSizing()
-			self:SetFrameLevel(self.level or 2)
-			me:Do_ReorderList(self:GetID())
-		end)
+	SetRowBorder(li, 1, 1, 1, 0)
+	if (n % 2 == 0) then
+		-- subtle alternate shading (keep alpha low so it matches most frame styles)
+		if li.SetBackdropColor then li:SetBackdropColor(0, 0, 0, 0.15) end
+	else
+		if li.SetBackdropColor then li:SetBackdropColor(0, 0, 0, 0.05) end
 	end
 
+	-- Text
+	me:MakeText(li, "text", itemSize)
+	li.text:SetFont("Fonts\\ARIALN.TTF", 16, "")
+		if (not draggingIndex) or (draggingIndex ~= n) then
+			SetRowBorder(li, 1, 1, 1, 0)
+		end
+	li.text:SetJustifyV("MIDDLE")
+	li.text:SetJustifyH("LEFT")
+	li.text:SetPoint("LEFT", li, "LEFT", 10, 0)
+	li.text:SetPoint("RIGHT", li, "RIGHT", -10, 0)
+
+-- Hover highlight
+li:SetScript("OnEnter", function(self)
+	if draggingIndex and draggingIndex ~= self:GetID() then
+		hoverIndex = self:GetID()
+		-- Ziel beim Drag = GELB
+		SetRowBorder(self, 1, 0.82, 0, 1)
+	else
+		-- normal hover = leicht gelblich
+		SetRowBorder(self, 1, 0.82, 0, 0.45)
+	end
+end)
+li:SetScript("OnLeave", function(self)
+	-- Drag-row bleibt grün, alle anderen aus
+	if draggingIndex and draggingIndex == self:GetID() then return end
+	-- Wenn wir eine hover row verlassen während drag: border aus
+	if hoverIndex and hoverIndex == self:GetID() then hoverIndex = nil end
+	SetRowBorder(self, 1, 1, 1, 0)
+end)
+
+-- "Drag" start (no StartMoving!)
+li:SetScript("OnMouseDown", function(self, button)
+	if button ~= "LeftButton" then return end
+	draggingIndex = self:GetID()
+	hoverIndex = nil
+	-- gezogene Row = GRÜN
+	SetRowBorder(self, 0, 1, 0, 1)
+end)
+
+	-- Drop / finish
+	li:SetScript("OnMouseUp", function(self, button)
+		if button ~= "LeftButton" then return end
+		if not draggingIndex then return end
+
+		-- Find which row we are dropping onto (prefer hoverIndex, fallback to mouseover scan)
+		local over = hoverIndex
+		if not over then
+			for i = 1, me.MAX_BUTTONS do
+				if me.rui.list[i]:IsMouseOver() then
+					over = i
+					break
+				end
+			end
+		end
+
+		local from = draggingIndex
+		draggingIndex = nil
+		hoverIndex = nil
+
+		-- Reset border colors
+		for i = 1, me.MAX_BUTTONS do
+			local row = me.rui.list[i]
+			if row and row.SetBackdropBorderColor then
+				SetRowBorder(row, 1, 1, 1, 0)
+			end
+		end
+
+		if over and over ~= from then
+			me:Do_ReorderList(from, over)
+		end
+	end)
+end
+
+	
 	-- Buttons
 	me:MakeButton(me.rui, "okay", L["Okay"])
 	me.rui.okay:SetScript("OnClick", function()
@@ -205,7 +297,7 @@ function me:UpdateUI_Reorder()
 		li:SetPoint("TOPLEFT", me.rui.scrollChild, "TOPLEFT", 0, posY)
 		li:SetPoint("TOPRIGHT", me.rui.scrollChild, "TOPRIGHT", 0, posY)
 		li.text:SetText(name)
-		li.text:SetFont("Fonts\ARIALN.TTF", 16, "")
+		li.text:SetFont("Fonts\\ARIALN.TTF", 16, "")
 		li:Show()
 	end
 
@@ -223,28 +315,24 @@ function me:UpdateUI_Reorder()
 		sf:SetVerticalScroll(0)
 	end
 end
-function me:Do_ReorderList(node)
-	local n, over = 0, nil
-	for n = 1, me.MAX_BUTTONS do
-		if (me.rui.list[n]:IsMouseOver()) then
-			if (n ~= node) then
-				over = n
-				break
-			end
+function me:Do_ReorderList(fromIndex, toIndex)
+	-- Move the spell order entry from fromIndex to toIndex
+	if (not fromIndex) or (not toIndex) or (fromIndex == toIndex) then
+		me:UpdateUI_Reorder()
+		return
+	end
+
+	local item = order[fromIndex]
+	if (toIndex > fromIndex) then
+		for n = fromIndex, toIndex - 1 do
+			order[n] = order[n + 1]
+		end
+	else
+		for n = fromIndex, toIndex + 1, -1 do
+			order[n] = order[n - 1]
 		end
 	end
-	if (over) then
-		local item = order[node]
-		if (over > node) then
-			for n = node, over-1, 1 do
-				order[n] = order[n+1]
-			end
-		else
-			for n = node, over, -1 do
-				order[n] = order[n-1]
-			end
-		end
-		order[over] = item
-	end
+	order[toIndex] = item
+
 	me:UpdateUI_Reorder()
 end
