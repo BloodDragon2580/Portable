@@ -443,7 +443,7 @@ function me:UpdateUI_FrameSize(width, height, fix)
 	elseif (me.db.profile.iconLayout == 4) or (me.db.profile.iconLayout == 5) then -- Look at Me (Left / Right)
 		w = w - (space * 6)
 		size = floor(w / 7)
-		h = h +(size * 4) + (space * 3)
+		h = h +(size * 5) + (space * 4)
 	else
 	end
 	
@@ -483,7 +483,7 @@ function me:UpdateUI_IconSizeFrame()
 		height = (size * 3) + (space * 2)
 	elseif (me.db.profile.iconLayout == 4) or (me.db.profile.iconLayout == 5) then -- Look at Me (Left / Right)
 		width = (size * 8) + (space * 6)
-		height = (size * 4) + (space * 3)
+		height = (size * 5) + (space * 4)
 	else
 		me:print("error", L["Invalid Icon Layout in UpdateUI_IconSizeFrame"])
 	end
@@ -720,6 +720,7 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button15:SetPoint("TOPLEFT", me.ui.button14, "TOPRIGHT", space, 0)
 		me.ui.button16:SetPoint("TOPLEFT", me.ui.button15, "TOPRIGHT", space, 0)
 		me.ui.button17:SetPoint("TOPLEFT", me.ui.button16, "TOPRIGHT", space, 0)
+		me.ui.button18:SetPoint("TOPLEFT", me.ui.button17, "TOPRIGHT", space, 0)
 
 	
 	-- Simple Rows
@@ -779,7 +780,8 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button16:SetPoint("TOPLEFT", me.ui.button9, "BOTTOMRIGHT", 0, -space)
 		me.ui.button17:SetPoint("TOPRIGHT", me.ui.button12, "BOTTOMRIGHT", 0, -space)
 		
-	-- Look at Me (LEFT)
+	
+		me.ui.button18:SetPoint("BOTTOMRIGHT", me.ui.container, "BOTTOMRIGHT", -pad, pad)-- Look at Me (LEFT)
 	elseif (me.db.profile.iconLayout == 4) then
 		me.ui.button1:SetPoint("TOPLEFT", me.ui.container, "TOPLEFT",  pad, -pad)
 		me.ui.button1:SetSize(size * 4 + (space * 3), size * 4 + (space * 3))
@@ -807,7 +809,8 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button16:SetPoint("TOPLEFT", me.ui.button15, "BOTTOMLEFT", 0, -space)
 		me.ui.button17:SetPoint("TOPLEFT", me.ui.button16, "BOTTOMLEFT", 0, -space)
 		
-	-- Look at Me (RIGHT)
+	
+		me.ui.button18:SetPoint("TOPLEFT", me.ui.button17, "BOTTOMLEFT", 0, -space)-- Look at Me (RIGHT)
 	elseif (me.db.profile.iconLayout == 5) then
 		me.ui.button1:SetPoint("TOPRIGHT", me.ui.container, "TOPRIGHT",  -pad, -pad)
 		me.ui.button1:SetSize(size * 4 + (space * 3), size * 4 + (space * 3))
@@ -835,7 +838,8 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button16:SetPoint("TOPRIGHT", me.ui.button15, "BOTTOMRIGHT", 0, -space)
 		me.ui.button17:SetPoint("TOPRIGHT", me.ui.button16, "BOTTOMRIGHT", 0, -space)
 		
-	-- Priority (RIGHT)... A few guildies have asked for a backwards Priority Layout, so here it is
+	
+		me.ui.button18:SetPoint("TOPRIGHT", me.ui.button17, "BOTTOMRIGHT", 0, -space)-- Priority (RIGHT)... A few guildies have asked for a backwards Priority Layout, so here it is
 	elseif (me.db.profile.iconLayout == 6) then
 		me.ui.button1:SetPoint("TOPRIGHT", me.ui.container, "TOPRIGHT",  -pad, -pad)
 		me.ui.button1:SetSize(size * 2 + space + space, size * 2 + space + space)
@@ -860,7 +864,8 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button14:SetPoint("BOTTOMRIGHT", me.ui.container, "BOTTOMRIGHT",  pad, -pad)
 		me.ui.button15:SetPoint("TOPRIGHT", me.ui.button14, "TOPLEFT", -space, 0)
 		me.ui.button16:SetPoint("TOPRIGHT", me.ui.button15, "TOPLEFT", -space, 0)		
-		me.ui.button17:SetPoint("TOPRIGHT", me.ui.button16, "TOPLEFT", -space, 0)	
+		me.ui.button17:SetPoint("TOPRIGHT", me.ui.button16, "TOPLEFT", -space, 0)			
+		me.ui.button18:SetPoint("TOPRIGHT", me.ui.button17, "TOPLEFT", -space, 0)
 
 	-- Invalid
 	else
