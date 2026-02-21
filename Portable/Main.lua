@@ -51,8 +51,10 @@ local defaults = {
 		
 		-- Spell Ordering
 		learnOrder = false,
-		allianceCounter = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
-		hordeCounter =  { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
+		-- These counters must match MAX_BUTTONS (currently 18). Older versions shipped with 17 entries,
+		-- which caused a nil arithmetic error when clicking the 18th button while learnOrder is enabled.
+		allianceCounter = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
+		hordeCounter =  { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
 		allianceSpellOrder = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 },		-- Default Ordering for Priority
 		hordeSpellOrder =  { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 },		-- Default Ordering for Priority
 		
@@ -165,6 +167,21 @@ function Event:ADDON_LOADED(addonName)
 	
 	-- Initialize our Options into the AceDB library
 	me.db = LibStub("AceDB-3.0"):New(myName.."DB", defaults, true)
+
+	-- Defensive fix for users upgrading from older versions:
+	-- ensure learning counters exist for all buttons (MAX_BUTTONS).
+	-- (AceDB keeps old saved tables and will not automatically extend array parts.)
+	if (me.db and me.db.profile) then
+		local function ensureCounter(tbl)
+			if (type(tbl) ~= "table") then return nil end
+			for i = 1, (me.MAX_BUTTONS or 18) do
+				if (tbl[i] == nil) then tbl[i] = 0 end
+			end
+			return tbl
+		end
+		me.db.profile.allianceCounter = ensureCounter(me.db.profile.allianceCounter) or { }
+		me.db.profile.hordeCounter = ensureCounter(me.db.profile.hordeCounter) or { }
+	end
 	
 	-- When changes to the profile happen, update appearance options
 	local function doUpdate() me:UpdateOptions(); me:UpdateUI_ButtonActions(); end
@@ -1247,9 +1264,11 @@ end
 function me:DoScript_OnClick(self, ...)
 	if (me.db.profile.learnOrder) then
 		if (UnitFactionGroup("player") == "Horde") then
-			me.db.profile.hordeCounter[self.ID] = me.db.profile.hordeCounter[self.ID] + 1
+			local c = me.db.profile.hordeCounter
+			c[self.ID] = (c[self.ID] or 0) + 1
 		else
-			me.db.profile.allianceCounter[self.ID] = me.db.profile.allianceCounter[self.ID] + 1
+			local c = me.db.profile.allianceCounter
+			c[self.ID] = (c[self.ID] or 0) + 1
 		end
 	end
 	me.ui:Hide()
