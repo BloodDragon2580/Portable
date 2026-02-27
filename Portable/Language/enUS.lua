@@ -36,3 +36,5 @@ L["Left-Click: %s"] = "Left-Click: %s"
 L["Right-Click: %s"] = "Right-Click: %s"
 L["Adjust the size of the portal icons on the World Map."] = "Adjust the size of the portal icons on the World Map."
 L["Show Map Pins"] = "Show map pins"
+
+L["Old Silvermoon City"] = "Old Silvermoon City"

@@ -91,8 +91,9 @@ local function TryRegister()
 
         UpdateSliderLabel(value)
 
-        if PortablePins.UpdateAllPinSizes then
-            PortablePins:UpdateAllPinSizes()
+        -- MapCanvas pins read size on Acquire; refresh pins so size applies immediately
+        if PortablePins.Provider and PortablePins.Provider.RefreshAllData then
+            PortablePins.Provider:RefreshAllData()
         end
     end)
 	
@@ -118,6 +119,11 @@ local function TryRegister()
         Settings.RegisterAddOnCategory(category)
     else
         InterfaceOptions_AddCategory(panel)
+    end
+
+    -- Ensure our MapCanvas pin pool is registered before the provider starts acquiring pins
+    if PortablePins.EnsurePinPoolRegistered then
+        PortablePins:EnsurePinPoolRegistered()
     end
 
     WorldMapFrame:AddDataProvider(PortablePins.Provider)

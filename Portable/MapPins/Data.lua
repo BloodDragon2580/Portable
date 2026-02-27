@@ -30,7 +30,8 @@ PortablePins.CITIES = {
     { city = "Stonard",          x = 0.90, y = 0.68, mapID = 947,  teleport = 49358,  portal = 49361 },
     { city = "Warspear",         x = 0.72, y = 0.39, mapID = 572,  teleport = 176242, portal = 176274 },
     { city = "Dazar'alor",       x = 0.58, y = 0.62, mapID = 875,  teleport = 281404, portal = 281402 },
-    { city = "Silvermoon",       x = 0.92, y = 0.31, mapID = 947,  teleport = 32272,  portal = 32267 },
+    { city = "Old Silvermoon",   x = 0.92, y = 0.31, mapID = 947,  teleport = 32272,  portal = 32267 },
+	{ city = "Silvermoon",  	 x = 45.35, y = 70.14, mapID = 2393,  teleport = 1259190,  portal = 1259194 },
 }
 
 PortablePins.MAP_OVERRIDES = {
@@ -45,7 +46,7 @@ PortablePins.MAP_OVERRIDES = {
         [1163] = { x = 0.66, y = 0.74 },
         [1165] = { x = 0.51, y = 0.46 },
     },
-    ["Silvermoon"] = {
+    ["Old Silvermoon"] = {
         [13]  = { x = 0.56, y = 0.13 },
         [94]  = { x = 0.53, y = 0.31 },
         [110] = { x = 0.58, y = 0.19 },

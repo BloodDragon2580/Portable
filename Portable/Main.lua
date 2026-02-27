@@ -51,12 +51,12 @@ local defaults = {
 		
 		-- Spell Ordering
 		learnOrder = false,
-		-- These counters must match MAX_BUTTONS (currently 18). Older versions shipped with 17 entries,
+		-- These counters must match MAX_BUTTONS (currently 19). Older versions shipped with 17 entries,
 		-- which caused a nil arithmetic error when clicking the 18th button while learnOrder is enabled.
-		allianceCounter = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
-		hordeCounter =  { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
-		allianceSpellOrder = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 },		-- Default Ordering for Priority
-		hordeSpellOrder =  { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 },		-- Default Ordering for Priority
+		allianceCounter = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
+		hordeCounter =  { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },		-- This is for the Learning option, everything starts at zero
+		allianceSpellOrder = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 },		-- Default Ordering for Priority
+		hordeSpellOrder =  { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 },		-- Default Ordering for Priority
 		
 		-- Extra Stuff
 		keyEscape = true,	-- Close when ESCAPE is pressed
@@ -98,7 +98,8 @@ me.aSpell = {
 	{ pid = 395289, tid = 395277, name = L["Valdrakken"], art="nValdrakken" },	--15
 	{ pid = 446534, tid = 446540, name = L["Dornogal"], art="nDornogal" },	--16
 	{ pid = 120146, tid = 120145, name = L["Old Dalaran"], art="nOldDalaran" },	--17
-	{ pid = 8690, tid = 8690, name = L["Hearthstone"], art="aHearthstone" },	--18	
+	{ pid = 1259194, tid = 1259190, name = L["Silvermoon City"], art="nSilvermoonCity" },	--18 (Midnight)
+	{ pid = 8690, tid = 8690, name = L["Hearthstone"], art="aHearthstone" },	--19
 }
 
 -- Horde Portal/Teleport Spell ID's + Friendly Names
@@ -107,7 +108,7 @@ me.hSpell = {
 	{ pid = 11417, tid = 3567, name = L["Orgrimmar"], art="hOrgrimmar" },	--1
 	{ pid = 11418, tid = 3563, name = L["Undercity"], art="hUndercity" },	--2
 	{ pid = 11420, tid = 3566, name = L["Thunder Bluff"], art="hThunderBluff" },	--3
-	{ pid = 32267, tid = 32272, name = L["Silvermoon City"], art="hSilvermoon" },	--4
+	{ pid = 32267, tid = 32272, name = L["Old Silvermoon City"], art="hSilvermoon" },	--4
 	{ pid = 49361, tid = 49358, name = L["Stonard"], art="hStonard" },	--5
 	{ pid = 35717, tid = 35715, name = L["Shattrath"], art="nShattrath" },	--6
 	{ pid = 53142, tid = 53140, name = L["Dalaran - Northrend"], art="nDalaran" },	--7
@@ -121,7 +122,8 @@ me.hSpell = {
 	{ pid = 395289, tid = 395277, name = L["Valdrakken"], art="nValdrakken" },	--15
 	{ pid = 446534, tid = 446540, name = L["Dornogal"], art="nDornogal" },	--16
 	{ pid = 120146, tid = 120145, name = L["Old Dalaran"], art="nOldDalaran" },	--17
-	{ pid = 8690, tid = 8690, name = L["Hearthstone"], art="hHearthstone" },	--18	
+	{ pid = 1259194, tid = 1259190, name = L["Silvermoon City"], art="nSilvermoonCity" },	--18 (Midnight)
+	{ pid = 8690, tid = 8690, name = L["Hearthstone"], art="hHearthstone" },	--19	
 }
 
 -- Hearthstones are ITEMS not SPELLS!
@@ -182,6 +184,29 @@ function Event:ADDON_LOADED(addonName)
 		me.db.profile.allianceCounter = ensureCounter(me.db.profile.allianceCounter) or { }
 		me.db.profile.hordeCounter = ensureCounter(me.db.profile.hordeCounter) or { }
 	end
+
+-- Ensure spell order tables include all buttons (MAX_BUTTONS). Older profiles may be short.
+local function ensureOrder(tbl)
+	if (type(tbl) ~= "table") then return nil end
+	local seen = {}
+	for i = 1, #tbl do
+		local v = tbl[i]
+		if (type(v) == "number") then seen[v] = true end
+	end
+	for i = 1, (me.MAX_BUTTONS or #tbl) do
+		if (not seen[i]) then
+			tbl[#tbl + 1] = i
+			seen[i] = true
+		end
+	end
+	while (#tbl > (me.MAX_BUTTONS or #tbl)) do
+		table.remove(tbl)
+	end
+	return tbl
+end
+me.db.profile.allianceSpellOrder = ensureOrder(me.db.profile.allianceSpellOrder) or {}
+me.db.profile.hordeSpellOrder = ensureOrder(me.db.profile.hordeSpellOrder) or {}
+
 	
 	-- When changes to the profile happen, update appearance options
 	local function doUpdate() me:UpdateOptions(); me:UpdateUI_ButtonActions(); end
@@ -451,7 +476,7 @@ function me:UpdateUI_FrameSize(width, height, fix)
 	elseif (me.db.profile.iconLayout == 2) then	-- Simple
 		w = w - (space * (perRow - 1))
 		size = floor(w / perRow)
-		local numRows = floor(me.MAX_BUTTONS / perRow) + 1
+		local numRows = ceil(me.MAX_BUTTONS / perRow)
 		h = h + (size * numRows) + (space * (numRows - 1))
 	elseif (me.db.profile.iconLayout == 3) then -- Center of Attention
 		w = w - (space * 8)
@@ -493,7 +518,7 @@ function me:UpdateUI_IconSizeFrame()
 		height = (size * 3) + (space * 2)
 	elseif (me.db.profile.iconLayout == 2) then	-- Simple
 		width = (size * me.db.profile.frameIconsPerRow) + (space * (me.db.profile.frameIconsPerRow - 1))
-		local numRows = floor(me.MAX_BUTTONS / me.db.profile.frameIconsPerRow) + 1
+		local numRows = ceil(me.MAX_BUTTONS / me.db.profile.frameIconsPerRow)
 		height = (size * numRows) + (space * (numRows - 1))
 	elseif (me.db.profile.iconLayout == 3) then -- Center of Attention
 		width = (size * 9) + (space * 8)
@@ -738,6 +763,7 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button16:SetPoint("TOPLEFT", me.ui.button15, "TOPRIGHT", space, 0)
 		me.ui.button17:SetPoint("TOPLEFT", me.ui.button16, "TOPRIGHT", space, 0)
 		me.ui.button18:SetPoint("TOPLEFT", me.ui.button17, "TOPRIGHT", space, 0)
+		me.ui.button19:SetPoint("TOPLEFT", me.ui.button18, "TOPRIGHT", space, 0)
 
 	
 	-- Simple Rows
@@ -798,7 +824,9 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button17:SetPoint("TOPRIGHT", me.ui.button12, "BOTTOMRIGHT", 0, -space)
 		
 	
-		me.ui.button18:SetPoint("BOTTOMRIGHT", me.ui.container, "BOTTOMRIGHT", -pad, pad)-- Look at Me (LEFT)
+		me.ui.button18:SetPoint("BOTTOMRIGHT", me.ui.container, "BOTTOMRIGHT", -pad, pad)
+		me.ui.button19:SetPoint("BOTTOMRIGHT", me.ui.button18, "BOTTOMLEFT", -space, 0)
+		-- Look at Me (LEFT)
 	elseif (me.db.profile.iconLayout == 4) then
 		me.ui.button1:SetPoint("TOPLEFT", me.ui.container, "TOPLEFT",  pad, -pad)
 		me.ui.button1:SetSize(size * 4 + (space * 3), size * 4 + (space * 3))
@@ -827,7 +855,9 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button17:SetPoint("TOPLEFT", me.ui.button16, "BOTTOMLEFT", 0, -space)
 		
 	
-		me.ui.button18:SetPoint("TOPLEFT", me.ui.button17, "BOTTOMLEFT", 0, -space)-- Look at Me (RIGHT)
+		me.ui.button18:SetPoint("TOPLEFT", me.ui.button17, "BOTTOMLEFT", 0, -space)
+		me.ui.button19:SetPoint("TOPLEFT", me.ui.button18, "BOTTOMLEFT", 0, -space)
+		-- Look at Me (RIGHT)
 	elseif (me.db.profile.iconLayout == 5) then
 		me.ui.button1:SetPoint("TOPRIGHT", me.ui.container, "TOPRIGHT",  -pad, -pad)
 		me.ui.button1:SetSize(size * 4 + (space * 3), size * 4 + (space * 3))
@@ -856,7 +886,9 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button17:SetPoint("TOPRIGHT", me.ui.button16, "BOTTOMRIGHT", 0, -space)
 		
 	
-		me.ui.button18:SetPoint("TOPRIGHT", me.ui.button17, "BOTTOMRIGHT", 0, -space)-- Priority (RIGHT)... A few guildies have asked for a backwards Priority Layout, so here it is
+		me.ui.button18:SetPoint("TOPRIGHT", me.ui.button17, "BOTTOMRIGHT", 0, -space)
+		me.ui.button19:SetPoint("TOPRIGHT", me.ui.button18, "BOTTOMRIGHT", 0, -space)
+		-- Priority (RIGHT)... A few guildies have asked for a backwards Priority Layout, so here it is
 	elseif (me.db.profile.iconLayout == 6) then
 		me.ui.button1:SetPoint("TOPRIGHT", me.ui.container, "TOPRIGHT",  -pad, -pad)
 		me.ui.button1:SetSize(size * 2 + space + space, size * 2 + space + space)
@@ -883,6 +915,7 @@ function me:UpdateUI_ButtonGrid()
 		me.ui.button16:SetPoint("TOPRIGHT", me.ui.button15, "TOPLEFT", -space, 0)		
 		me.ui.button17:SetPoint("TOPRIGHT", me.ui.button16, "TOPLEFT", -space, 0)			
 		me.ui.button18:SetPoint("TOPRIGHT", me.ui.button17, "TOPLEFT", -space, 0)
+		me.ui.button19:SetPoint("TOPRIGHT", me.ui.button18, "TOPLEFT", -space, 0)
 
 	-- Invalid
 	else
