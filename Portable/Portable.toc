@@ -1,7 +1,7 @@
 ## Interface: 120001
 ## Title: |cffd6266cPortable|r
 ## Notes: Quick Access Fancy Button Frame for Mage Portal and Teleport Spells. (A big Thx at nancikennedy for the nice help.)
-## Author: BloddDragon2580
+## Author: BloodDragon2580
 ## Version: 20.2
 ## SavedVariables: PortableDB, PortablePinsDB
 ## OptionalDeps: LibStub, CallbackHandler-1.0, LibSharedMedia-3.0, AceGUI-3.0, AceGUI-3.0-SharedMediaWidgets, AceDB-3.0, AceDBOptions-3.0, AceConfig-3.0, AceConsole-3.0
